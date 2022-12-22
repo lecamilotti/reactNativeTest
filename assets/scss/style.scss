@@ -1,0 +1,30 @@
+@import 'utilities/variables';
+@import 'utilities/mixins';
+@import 'utilities/classes';
+@import 'utilities/breakpoints';
+@import 'utilities/fonts';
+
+/* global style available on all pages */
+@import 'site/global';
+@import 'site/icon-font';
+@import 'site/tooltip';
+
+/* page specific style */
+@import 'site/login';
+@import 'site/sidebar';
+@import 'site/leadList';
+@import 'site/leadDetails';
+@import 'site/entityInformationCard';
+@import 'site/entityStatusCard';
+@import 'site/createCreditPage';
+@import 'site/createAgreementModal';
+@import 'site/invoice';
+@import 'site/editLeadForm';
+@import 'site/updateCardDetails';
+@import 'site/debtCollection';
+@import 'site/patientDunning';
+@import 'site/log';
+@import 'site/acceptLoan';
+@import 'site/errorPage';
+@import 'site/addPatientModal';
+@import 'site/somethingWentWrongError';

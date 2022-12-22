@@ -1,0 +1,457 @@
+.dunning-link {
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+}
+
+.patients-dunning-section  {
+  padding: 40px;
+  background-color: $lightest-grey;
+  min-height: 100%;
+
+  & .loading-message {
+    background-color: $lightest-grey;
+    z-index: 1000;
+  }
+
+  .data-cards .card, .patient-list.card {
+    border: 0;
+    & .card-body {
+      padding: 0;
+    }
+    &.lead-information {
+      border-radius: 8px;
+      border-bottom: 5px solid #f2f2f2;
+      &.custom-card-tabs {
+        border: none
+      }
+    }
+  } 
+
+  & > .dunning-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & .header-title {
+      font-size: 1.5rem;
+      color: $darkest-grey;
+      line-height: 1.33;
+      font-weight: bold;
+    }
+
+    .search-form {
+      .form {
+        position: relative;
+
+        & .btn-search, & .btn-clear-search {
+          position: absolute;
+          top: 6px;
+          right: 13px;
+          z-index: 1;
+          color: $dark-grey;
+          margin-top: 5px;
+          cursor: pointer;
+          @include font-style(16px, 400, 1);
+          background-color: transparent;
+          border: 0;
+
+          @include hover-focus-active {
+            outline: none;
+          }
+        }
+      }
+      .form-group {
+        margin-bottom: 0;
+
+        .form-control {
+          min-width: 320px;
+          border-radius: 2rem;
+          min-height: 38px;
+          position: relative;
+          color: $green-main;
+          padding: {
+            left: 1rem;
+            right: 1rem;
+          }
+
+          &::placeholder {
+            color: $dark-grey;
+          }
+
+          @include focus() {
+            box-shadow: inset 0 0 4px 4px $lighter-grey;
+            border-color: $green-main;
+          }
+        }
+      }
+    }
+  }
+
+  & .data-cards {
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    & .card-deck {
+      & > .card {
+        flex: 0 0 auto;
+      }
+    }
+
+    & .card {
+      padding: 16px 20px;
+      color: $darker-grey;
+      border-bottom: 5px solid #f2f2f2;
+      border-radius: 8px;
+
+      @include media-breakpoint-up(lg) {
+        width: 148px;
+      }
+
+      & .data-value {
+        font-size: 36px;
+        line-height: 0.89;
+        font-weight: 500;
+      }
+
+      & .data-label {
+        font-size: 14px;
+      }
+
+      &.data-amount {
+        min-width: 150px;
+        width: auto;
+        @include media-breakpoint-up(lg) {
+          min-width: 150px;
+          width: auto;
+        }
+      }
+    }
+
+    .btn-export-csv {
+      font-size: 13px;
+    }
+  }
+
+  & .patient-list {
+    margin-top: 22px;
+    padding: 20px;
+    border-bottom: 5px solid #f2f2f2;
+    border-radius: 8px;
+    
+    & .patient-table {
+      thead {
+        th {
+          font-weight: 400;
+          font-size: 14px;
+          border-top: 0;
+          color: $dark-grey;
+          border-bottom: 0;
+          text-align: right;
+          position: relative;
+
+          &:first-child {
+            text-align: left;
+          }
+          &:nth-child(7) {
+            text-align: center;
+          }
+          &:nth-child(8), &:nth-child(9) {
+            text-align: left;
+          }
+
+          &.sortable-header {
+            cursor: pointer;
+          }
+
+          & .sort-arrow {
+            margin-left: 10px;
+            &:before, &:after {
+              position: absolute;
+              content: '';
+              width: 0;
+              height: 0;
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+
+            }
+
+            &:before {
+              border-bottom: 5px solid $arrow-color;
+              top: 16px;
+            }
+
+            &:after {
+              border-top: 5px solid $arrow-color;
+              bottom: 16px;
+            }
+
+            &.asc {
+              &:before {
+                border-bottom-color: $arrow-color-select;
+              }
+            }
+
+            &.desc {
+              &:after {
+                border-top-color: $arrow-color-select;
+              }
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          vertical-align: middle;
+          cursor: pointer;
+
+          &:hover, &.selected {
+            background-color: #fafafa;
+          }
+        }
+
+        td {
+          border-top-color: $lightest-grey;
+          border-top-width: 2px;
+          font-size: 14px;
+          font-weight: 400;
+          color: $darker-grey;
+          vertical-align: middle;
+
+          @include media-breakpoint-down(lg) {
+            min-width: 130px;
+          }
+
+          &:first-child {
+            font-weight: 500;
+
+            & .badge {
+              font-size: 14px;
+              width: 23px;
+              height: 23px;
+              text-align: center;
+              vertical-align: middle;
+              padding: 6px 5px;
+              font-weight: 400;
+            }
+          }
+
+          &:not(:first-child) {
+            text-align: right;
+
+            & .badge {
+              font-size: 11px;
+              padding: 10px;
+              width: 95px;
+              color: $white;
+              font-weight: 400;
+              background-color: $lighter-grey;
+              color: $darker-grey;
+
+              &.status-debtCollection {
+                  background-color: $status-debtCollection;
+                  color: $white;
+              }
+              &.status-dialogue {
+                  background-color: $status-dialogue;
+                  color: $white;
+              }
+              &.status-noContact {
+                  background-color: $status-noContact;
+                  color: $white;
+              }
+              &.status-notContacted {
+                  background-color: $status-notContacted;
+                  color: $white;
+              }
+              &.status-agreement {
+                  background-color: $status-agreement;
+                  color: $white;
+              }
+            }
+          }
+
+          &:nth-child(7) {
+            text-align: center;
+          }
+
+          & .circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 4px;
+
+            & a {
+              background-color: $neutral-main;
+              border-radius: 50%;
+              padding: 5px;
+              width: 20px;
+              height: 20px;
+              text-transform: uppercase;
+              font-family: "Maven Pro Bold";
+              color: $white;
+              text-decoration: none;
+              font-size: 14px;
+              text-align: center;
+              vertical-align: middle;
+              padding-top: 1px;
+            }
+          }
+
+          & .status-red, & .status-yellow {
+            color: $text-status-red;
+          }
+        }
+      }
+    }
+  }
+
+}
+.patient-dunning-details {
+  position: fixed;
+  width: 50%;
+  background-color: $white;
+  top: 0;
+  bottom: 0;
+  right: -100%;
+  z-index: 500;
+  box-shadow: 7px 0 32px 3px rgba(102, 102, 102, 0.24);
+  transition: all .4s ease-in-out;
+
+  &.open {
+    right: 0;
+  }
+
+  & > .entity-details-section {
+    height: 100%;
+    position: relative;
+    overflow: visible;
+    margin-bottom: 50px;
+    & .details-toggler {
+      position: absolute;
+      left: -55px;
+      top: 2.8%;
+      padding: 0.65rem 0.5rem;
+      text-align: center;
+      font-size: 14px;
+      background-color: $white;
+      border-radius: 4px 0 0 4px;
+      box-shadow: -4px 0 32px -1px hsla(0, 0%, 40%, 0.24);
+
+      .di {
+        margin-right: 0;
+      }
+    }
+
+    & .custom-card-section {
+      background-color: $lightest-grey;
+
+      & .card .card-body {
+        padding: 25px;
+        border-bottom: 5px solid #f2f2f2;
+        border-radius: 8px;
+      }
+
+      & .menu-toggler.close-action {
+        display: none;
+        left: 1.5rem;
+        right: auto;
+
+        @include media-breakpoint-up(wd) {
+          left: 42px;
+        }
+      }
+
+    }
+    @include media-breakpoint-between(md, xl) {
+      position: relative;
+    }
+  }
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .patients-dunning-section  {
+    padding: 40px;
+    background-color: $sundhedplus-lightest-grey;
+    min-height: 100%;
+  
+    & .loading-message {
+      background-color: $sundhedplus-lightest-grey;
+    }
+  
+    & > .dunning-header {
+      & .header-title {
+        color: $sundhedplus-darkest-grey;
+      }
+  
+      .search-form {
+        .form-group {
+          .form-control {
+            color: $sundhedplus-red-main;
+            @include focus() {
+              box-shadow: inset 0 0 4px 4px $sundhedplus-lighter-grey;
+              border-color: $sundhedplus-red-main;
+            }
+          }
+        }
+      }
+    }
+    & .patient-list {
+      & .patient-table {
+        tbody {
+          td {
+            border-top-color: $sundhedplus-lightest-grey;
+            &:not(:first-child) {
+              text-align: right;
+              & .badge {
+                background-color: $sundhedplus-lighter-grey;
+              
+                &.status-debtCollection {
+                  background-color: $status-debtCollection;
+                  color: $white;
+                }
+              
+                &.status-dialogue {
+                  background-color: $status-dialogue;
+                  color: $white;
+                }
+              
+                &.status-noContact {
+                  background-color: $status-noContact;
+                  color: $white;
+                }
+              
+                &.status-notContacted {
+                  background-color: $status-notContacted;
+                  color: $white;
+                }
+              
+                &.status-agreement {
+                  background-color: $sundhedplus-status-agreement;
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // .patient-dunning-details {
+  //   margin-bottom: 50px;
+  // }  
+}

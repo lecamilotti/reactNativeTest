@@ -1,0 +1,150 @@
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  .custom-card {
+    .header-information {
+      .action-btn {
+        .submit-btn {
+          padding: 0.35rem 1.5rem;
+        }
+      }
+    }
+
+    .patient-details {
+      position: relative;
+
+      .action-buttons {
+        @include media-breakpoint-up(sm) {
+          margin-top: 0;
+          position: absolute;
+          top: -30px;
+          padding-right: 0;
+          right: 0;
+        }
+
+        .btn {
+          margin-left: 10px;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    &.edit-mode {
+      .card-body {
+        @include media-breakpoint-up(sm)  {
+          padding-top: 31px;
+        }
+
+        @include media-breakpoint-up(xl) {
+          padding-top: 41px;
+        }
+      }
+
+      &.company-information {
+        .card-body {
+          @include media-breakpoint-up(sm) {
+            padding-top: 20px;
+          }
+
+          @include media-breakpoint-up(xl) {
+            padding-top: 30px;
+          }
+        }
+
+        .patient-details {
+          .action-buttons {
+            @include media-breakpoint-up(sm) {
+              top: -40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.edit-patient-details {
+  .form-group {
+    margin: 0;
+    padding: 0;
+  }
+
+  .logo {
+    .d-logo {
+      margin-top: 20px;
+
+      .di-cpr {
+        font-size: 12px;
+      }
+    }
+
+  }
+
+  .cpr, .phone, .mail {
+    .logo {
+      .d-logo {
+        line-height: 34px;
+      }
+    }
+  }
+
+  .no-note, .note {
+    .logo {
+      .d-logo {
+        line-height: 35px;
+      }
+    }
+  }
+
+  .read-only-user {
+    padding: 2px 0;
+    font-size: 14px;
+    color: $grey;
+  }
+
+  label {
+    color: $dark-grey;
+    text-transform: uppercase;
+    font-size: 8px;
+    margin: {
+      top: 5px;
+      bottom: 0;
+    }
+  }
+
+  input {
+    appearance: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $logo-color;
+    background-color: $lightest-grey;
+    border-radius: 0;
+    font-size: 14px;
+    padding: 2px 0;
+    color: $darker-grey;
+
+    @include hover-focus-active {
+      border: none;
+      border-bottom: 2px solid $green-main;
+      box-shadow: none;
+      background-color: $lightest-grey;
+    }
+  }
+}
+
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .edit-patient-details {
+    input {
+      background-color: $sundhedplus-lightest-grey;
+      @include hover-focus-active {
+        border-bottom: 2px solid $sundhedplus-red-main;
+        background-color: $sundhedplus-lightest-grey;
+      }
+    }
+  }  
+}

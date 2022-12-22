@@ -1,0 +1,1016 @@
+.invoice-details {
+  position: relative;
+
+  .invoice-cell, .invoice-header-cell, .loan-cell, .loan-header-cell {
+    padding: {
+      left: 0.25rem;
+      right: 0.25rem;
+    }
+  }
+
+  .mt-40 {
+      margin-top: 40px;
+    }
+  .observations {
+    width: 100%;
+
+    &.addInvoiceActive {
+      margin-top: 1.25rem;
+    }
+  }
+
+  .observation {
+    div {
+      background-color: $filter-reset;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      padding: 5px;
+
+      .btn {
+        padding: 0;
+
+        @include plain-all {
+          color: $darker-grey;
+          text-decoration: underline;
+        }
+
+        &.obs-link {
+          font-size: 14px;
+        }
+      }
+    }
+    &.fade-enter, &.fade-enter.fade-enter-active {
+      opacity: 0;
+      visibility: hidden;
+      transition: all ease 1s;
+    }
+    &.fade-enter-done {
+      opacity: 1;
+      visibility: visible;
+      transition: all ease 1s;
+    }
+    &.fade-exit {
+      visibility: visible;
+      opacity: 0;
+    }
+
+    &.fade-exit.fade-exit-active{
+      opacity: 0;
+      visibility: hidden;
+      transition: all ease 1s;
+    }
+    a {
+      color: $green-main;
+    }
+  }
+
+  .invoice-grid-container, .loan-grid-container {
+    .invoice-cell, .loan-cell {
+      padding: {
+        top: 0.75rem;
+        bottom: 0.75rem;
+      }
+
+      &.invoice-actions {
+        text-align: left;
+
+        .has-tooltip {
+          display: inline-block;
+          color: $darker-grey;
+          cursor: pointer;
+          font-size: 15px;
+          padding: {
+            left: 6px;
+            right: 6px;
+          }
+            .tooltip {
+              font-size: 12px;
+              color: $white;
+              cursor: default;
+            }
+            .di-loan-count {
+              font-weight: 600;
+            }
+        }
+      }
+      .has-tooltip {
+        cursor: pointer;
+      }
+
+      &.invoice-header-cell, &.loan-header-cell {
+        background-color: $white;
+        color: $darker-grey;
+        text-transform: uppercase;
+        border: 0;
+        padding: {
+          top: 0.75rem;
+          bottom: 0.75rem;
+        }
+        @include font-style(12px, 700, 12px);
+
+        @include media-breakpoint-only(sm) {
+          font-size: 11px;
+        }
+
+        &.invoice-total {
+          text-align:  right;
+        }
+      }
+
+      &:not(.invoice-header-cell), &:not(.loan-header-cell) {
+        @include font-style(12px, 400, 12px);
+        color: $darker-grey;
+        background-color: $white;
+        border: 0;
+        border-bottom: 1px solid $lighter-grey;
+        margin-bottom: 0;
+
+
+
+        &.invoice-status {
+          &.status-yellow {
+            color: $orange-main;
+          }
+
+          &.status-red {
+            color: $text-status-red;
+          }
+
+          &.status-green {
+            color: $green-main;
+          }
+
+          &:first-letter {
+            text-transform: uppercase;
+          }
+
+          &.created-by-other {
+            color: $grey;
+          }
+        }
+
+        &.invoice-actions {
+          text-align: left;
+
+          span {
+            display: inline-block;
+            color: $darker-grey;
+            font-size: 16px;
+            padding: {
+              left: 6px;
+              right: 6px;
+            }
+            cursor: pointer;
+
+            .tooltip {
+              font-size: 12px;
+              color: $white;
+              cursor: default;
+            }
+          }
+        }
+
+        &.invoice-total {
+          text-align: right;
+        }
+
+        &.invoice-clinic {
+          a {
+            @include plain-all() {
+              color: $darker-grey;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        & .invoice-paid-out {
+          cursor: pointer;
+          color: $green-main;
+
+          & .di {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .invoice-form, .loan-form {
+    background-color: $white;
+
+    .invoice-cell, .loan-cell {
+      align-self: start;
+      padding: {
+        top: 0.5rem;
+        bottom: 0.5rem;
+      }
+      background-color: transparent;
+
+      input {
+        appearance: none;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $logo-color;
+        background-color: transparent;
+        border-radius: 0;
+        font-size: 12px;
+        padding: 2px 0;
+
+        @include hover-focus-active {
+          border: none;
+          border-bottom: 1px solid $green-main;
+          box-shadow: none;
+        }
+      }
+
+      &.invoice-date {
+        @include font-style(12px, 400, 12px);
+        text-transform: lowercase;
+        padding-top: 1.3rem;
+      }
+
+      .text-danger {
+        padding-top: 5px;
+        font-size: 12px;
+      }
+
+      &.invoice-actions {
+        text-align: left;
+        padding-top: 1.3rem;
+
+        .has-tooltip {
+          display: inline-block;
+          color: $light-grey;
+          font-size: 15px;
+          padding: {
+            left: 6px;
+            right: 6px;
+          }
+        }
+      }
+
+      &.invoice-total {
+        input {
+          text-align: right;
+        }
+      }
+
+      &.invoice-amount {
+        text-align: right;
+      }
+
+      &.invoice-number, &.signupFee, &.invoice-total {
+        @include media-breakpoint-up(md) {
+
+        }
+      }
+    }
+  }
+
+  &.ie {
+    // ie11 fallback style
+    .invoice-grid-container, .invoice-form  {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+
+      .invoice-cell {
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        // xs - mobile, above sm, only xl
+        &:nth-child(5n+1) {
+          @include ie-grid-fallback((100% / 3), (100% / 5), 18%);
+        }
+        &:nth-child(5n+2) {
+          @include ie-grid-fallback((100% / 3), (100% / 5), 18%);
+        }
+        &:nth-child(5n+3) {
+          @include ie-grid-fallback((100% / 3), (100% / 5), 25%);
+        }
+        &:nth-child(5n+4) {
+          @include ie-grid-fallback((100% / 3), (100% / 5), 19%);
+        }
+        &:nth-child(5n+5) {
+          @include ie-grid-fallback((100% / 3), (100% / 5), 20%);
+        }
+      }
+    }
+
+    &.is-admin {
+      .invoice-grid-container, .invoice-form  {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .invoice-cell {
+          flex-grow: 0;
+          flex-shrink: 0;
+          // xs - mobile, above sm, only xl
+          &:nth-child(6n+1) {
+            @include ie-grid-fallback((100% / 3), (100% / 6), 16%);
+          }
+          &:nth-child(6n+2) {
+            @include ie-grid-fallback((100% / 3), (100% / 6), 15%);
+          }
+          &:nth-child(6n+3) {
+            @include ie-grid-fallback((100% / 3), (100% / 6), 21%);
+          }
+          &:nth-child(6n+4) {
+            @include ie-grid-fallback((100% / 3), (100% / 6), 20%);
+          }
+          &:nth-child(6n+5) {
+            @include ie-grid-fallback((100% / 3), (100% / 6), 10%);
+          }
+          &:nth-child(6n+6) {
+            @include ie-grid-fallback((100% / 3), (100% / 6), 18%);
+          }
+        }
+      }
+    }
+  }
+
+
+  button {
+    align-items: center;
+    display: inline-flex;
+  }
+}
+
+// css grids for modern browsers
+@supports(grid-area: auto) {
+  .invoice-details {
+    .invoice-grid-container, .invoice-form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      @include media-breakpoint-up(sm) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include media-breakpoint-only(xl) {
+        grid-template-columns: 20% 30% 30% 20%;
+      }
+
+      .invoice-cell {
+        max-width: 100%;
+      }
+
+      &.needs-signature, &.show-clinic, &.show-clone, &.needs-signature.show-clone {
+        @include media-breakpoint-up(sm) {
+          grid-template-columns: repeat(5, 1fr);
+        }
+
+        @include media-breakpoint-only(xl) {
+          grid-template-columns: 18% 18% 25% 19% 20%;
+        }
+      }
+      &.needs-signature.show-clinic {
+        @include media-breakpoint-up(sm) {
+          grid-template-columns: repeat(6, 1fr);
+        }
+        @include media-breakpoint-only(xl) {
+          grid-template-columns: 20% 20% 21% 15% 12% 12%;
+        }
+      }
+      &.show-clinic.show-clone {
+        @include media-breakpoint-up(sm) {
+          grid-template-columns: repeat(6, 1fr);
+        }
+        @include media-breakpoint-only(xl) {
+          grid-template-columns: 20% 20% 21% 15% 12% 12%;
+        }
+      }
+    }
+
+    &.is-admin {
+      .invoice-grid-container, .invoice-form {
+        @include media-breakpoint-up(sm) {
+          grid-template-columns: 1fr 1fr 1.25fr 1fr 0.75fr 1fr;
+        }
+        @include media-breakpoint-only(xl) {
+          grid-template-columns: 16% 15% 21% 20% 10% 18%;
+        }
+      }
+    }
+  }
+}
+
+
+.invoice-details .invoice-grid-container >.invoice-cell {
+  &.created-by-other {
+    color: $grey;
+  }
+  &.grid-span-2 {
+    grid-column: span 2;
+  }
+}
+
+.denti-modal {
+  .modal-content {
+    .close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      font-size: 14px;
+      z-index: 500;
+      font-weight: 400;
+      cursor: pointer;
+      i {
+        color: $darker-grey;
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+.loan-details-modal {
+  & .details {
+    font-size: 14px;
+  }
+
+  & .close {
+    .di-close {
+      font-size: 12px;
+      vertical-align: bottom;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    max-width: 620px;
+  }
+
+  .modal-content {
+    padding: 30px 20px;
+
+    @include media-breakpoint-up(lg) {
+      padding: 50px 40px;
+    }
+
+    .modal-body {
+      padding: 0;
+    }
+  }
+
+  .loan-table {
+    margin-top: 30px;
+  }
+
+  .total-as {
+    font-size: 24px;
+    font-family: "Maven Pro Bold";
+  }
+
+  .nav-tabs, .nav-link {
+    border: 0;
+    font-size: 14px;
+    color: $darker-grey;
+
+    &.active {
+      color: $darker-grey;
+    }
+  }
+
+  .nav-link {
+    &.active {
+      background-color: $lightest-grey;
+    }
+  }
+
+  .table {
+    background-color: $lightest-grey;
+    margin-bottom: 0;
+
+    tr {
+      &:first-child td {
+        border-top: 0;
+      }
+
+      td {
+        font-size: 12px;
+        color: $form-black;
+        padding: 0.5rem;
+        border-color: $light-grey;
+
+        &.status-yellow {
+          color: $status-yellow;
+        }
+
+        &.status-red {
+          color: $text-status-red;
+        }
+
+        &.status-green {
+          color: $status-green;
+        }
+
+        &.status-inactive {
+          color: $status-inactive;
+        }
+      }
+    }
+
+  }
+}
+
+.loan-details-scroll {
+  min-height: 1px;
+  height: 400px;
+
+  & .scrollbar-wrapper {
+    min-height: 100%;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    background-color: $lightest-grey;
+  }
+
+
+}
+
+.loan-details-link {
+  cursor: pointer;
+  padding: {
+    top: 0.25rem;
+    left: 0;
+    bottom: 0.25rem;
+    right: 0.25rem;
+  };
+}
+
+
+.loan-invoices {
+  color: $darker-grey;
+  font-size: 12px;
+  font-weight: 400;
+
+  .row-fields {
+    margin-left: -10px;
+    margin-right: -10px;
+
+    .col-fields {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .list-installment-loans {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .list-header-cell, .list-entry-cell {
+    padding: 12px 4px;
+    border-bottom: 1px solid $lighter-grey;
+    line-height: 12px;
+    max-width: 100%;
+    background-color: $lightest-grey;
+  }
+
+  .list-header-cell {
+    text-transform: uppercase;
+  }
+
+  .restructuring-form {
+    color: $darker-grey;
+    padding: 18px 18px 10px 18px;
+
+    .form-label {
+      font-size: 10px;
+      display: block;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+
+      .long-version {
+        display: block;
+
+        @include media-breakpoint-only(xl) {
+          display: none;
+        }
+      }
+
+      .short-version {
+        display: none;
+
+        @include media-breakpoint-only(xl) {
+          display: block;
+        }
+      }
+    }
+    .input-addon-group {
+      display: flex;
+      flex-direction: row;
+      font-size: 12px;
+      border-bottom: 1px solid $lighter-grey;
+      .form-control {
+        height: 27px;
+      }
+
+      .input-addon {
+        height: 27px;
+        padding: 0.375rem 0;
+      }
+    }
+
+    .form-control {
+      font-size: 12px;
+      border: 0;
+      padding-left: 0;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    input[type=date] {
+      position: relative;
+      padding: 0.35rem 0.25rem 0.25rem 0;
+      color: $darker-grey;
+
+      &::placeholder {
+        color: $filter-border;
+      }
+
+      // &::-webkit-datetime-edit,
+      &::-webkit-clear-button,
+      &::-webkit-inner-spin-button {
+          display: none;
+      }
+
+      &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+        color: transparent;
+        background: transparent;
+      }
+    }
+
+    .dropdown-reason {
+      width: auto;
+
+      .dropdown-toggle {
+        background-color: $white;
+        color: $darker-grey;
+        font-size: 12px;
+        height: 27px;
+        width: 100%;
+        padding: 0.5rem 0.375rem;
+        border: 1px solid $lighter-grey;
+        border-radius: 0;
+        position: relative;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:after {
+          position: absolute;
+          right: 10px;
+          color: #acacac;
+          border-width: 6px 4px 0 4px;
+          top: 10px;
+        }
+      }
+
+      .dropdown-menu {
+        .dropdown-item {
+          background-color: $white;
+          border: 1px solid $lighter-grey;
+          font-size: 12px;
+          color: $darker-grey;
+          padding: 0.5rem 0.375rem;
+
+          &.active {
+            background-color: $lighter-grey;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .duration-slider {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .custom-range {
+      &::-webkit-slider-thumb {
+        background: $green-main;
+        position: relative;
+        top: -2px;
+      }
+
+      &::-moz-range-thumb {
+        background: $green-main;
+        position: relative;
+        top: -2px;
+      }
+
+      &::-ms-thumb {
+        background: $green-main;
+        position: relative;
+        top: -2px;
+      }
+
+      &::-webkit-slider-runnable-track {
+        height: 4px;
+        background-color: $light-grey;
+      }
+
+      &::-moz-range-track {
+        height: 4px;
+        background-color: $light-grey;
+      }
+
+      &::-ms-track {
+        height: 4px;
+        background-color: $light-grey;
+      }
+
+      &:focus {
+        &::-webkit-slider-thumb {
+          box-shadow: none;
+        }
+
+        &::-moz-range-thumb {
+          box-shadow: none;
+        }
+
+        &::-ms-thumb {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .submit-btn-container {
+    margin-top: 35px;
+    margin-bottom: 5px;
+
+    .submit-btn {
+      & .di {
+        vertical-align: sub;
+      }
+      &:disabled {
+        background-color: $lighter-grey;
+        color: $dark-grey;
+      }
+    }
+  }
+
+  .monthly {
+    font-size: 16px;
+    font-weight: bold;
+    color: $darker-grey;
+  }
+
+  .total-balance {
+    color: $dark;
+    margin-bottom: 25px;
+
+    .total-balance-value {
+      font-family: "Maven Pro Bold";
+      font-size: 14px;
+    }
+  }
+}
+
+.paid-out-details-modal {
+  .close {
+    top: 17px;
+    right: 17px;
+  }
+
+  .modal-body {
+    padding: 40px 53px;
+    font-size: 14px;
+    line-height: 22px;
+    color: $darker-grey;
+  }
+
+  .di-circle-check {
+    font-size: 51px;
+    color: $dunning-green;
+  }
+
+  .paid-out-title {
+    margin-top: 15px;
+    margin-bottom: 44px;
+    font-size: 24px;
+    font-family: "Maven Pro Bold";
+    line-height: 1;
+    color: $darkest-grey;
+  }
+
+  .extra-text {
+    margin-top: 31px;
+
+    p {
+      &:last-child {
+        font-style: italic;
+      }
+    }
+  }
+  .data-row {
+    padding: 2px 0;
+  }
+
+  .total-paid-out {
+    border: 1px solid $light-grey;
+    border-left: 0;
+    border-right: 0;
+    font-weight: bold;
+    line-height: 32px;
+  }
+
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .invoice-details {
+    position: relative;
+    .invoice-grid-container, .loan-grid-container {
+      .invoice-cell, .loan-cell {
+        &:not(.invoice-header-cell), &:not(.loan-header-cell) {
+          @include font-style(12px, 400, 12px);
+          border-bottom: 1px solid $sundhedplus-lighter-grey;
+          margin-bottom: 0;
+          &.invoice-status {
+            &.status-yellow {
+              color: $sundhedplus-orange-main;
+            }
+  
+            &.status-green {
+              color: $sundhedplus-card-green;
+            }
+  
+            &.status-stable {
+              color: $sundhedplus-status-stable;
+            }
+          }
+  
+          & .invoice-paid-out {
+            cursor: pointer;
+            color: $sundhedplus-card-green;
+          }
+        }
+      }
+    }
+  
+    .invoice-form, .loan-form {
+      background-color: $white;
+  
+      .invoice-cell, .loan-cell {
+        input {
+          @include hover-focus-active {
+            border-bottom: 1px solid $sundhedplus-red-main;
+          }
+        }
+  
+        &.invoice-actions {
+          text-align: left;
+          padding-top: 1.3rem;
+  
+          .has-tooltip {
+            display: inline-block;
+            color: $sundhedplus-light-grey;
+          }
+        }
+      }
+    }
+    .observation {
+      a {
+        color: $sundhedplus-red-main;
+      }
+    }
+  } 
+  
+  &.loan-details-modal {
+    .nav-link {
+      &.active {
+        background-color: $sundhedplus-lightest-grey;
+      }
+    }
+  
+    .table {
+      background-color: $sundhedplus-lightest-grey;
+      tr {
+        td {
+          border-color: $sundhedplus-light-grey;
+  
+          &.status-yellow {
+            color: $status-yellow;
+          }
+  
+          &.status-red {
+            color: $text-status-red;
+          }
+  
+          &.status-green {
+            color: $sundhedplus-status-green;
+          }
+  
+          &.status-inactive {
+            color: $status-inactive;
+          }
+  
+          &.status-stable {
+            color: $sundhedplus-status-stable;
+          }
+        }
+      }
+    }
+  }
+  
+  .loan-details-scroll {
+    & .scrollbar-wrapper {
+      background-color: $sundhedplus-lightest-grey;
+    }
+  }
+  
+  .loan-invoices {
+    .list-header-cell, .list-entry-cell {
+      border-bottom: 1px solid $sundhedplus-lighter-grey;
+      background-color: $sundhedplus-lightest-grey;
+    }
+  
+    .restructuring-form {
+      color: $darker-grey;
+      padding: 18px 18px 10px 18px;
+      .input-addon-group {
+        border-bottom: 1px solid $sundhedplus-lighter-grey;
+      }
+      .dropdown-reason {
+        width: auto;
+        .dropdown-toggle {
+          border: 1px solid $sundhedplus-lighter-grey;
+        }
+  
+        .dropdown-menu {
+          .dropdown-item {
+            border: 1px solid $sundhedplus-lighter-grey;
+            &.active {
+              background-color: $sundhedplus-lighter-grey;
+            }
+          }
+        }
+      }
+      .custom-range {
+        &::-webkit-slider-thumb {
+          background: $sundhedplus-red-main;
+        }
+  
+        &::-moz-range-thumb {
+          background: $sundhedplus-red-main;
+        }
+  
+        &::-ms-thumb {
+          background: $sundhedplus-red-main;
+        }
+  
+        &::-webkit-slider-runnable-track {
+          background-color: $sundhedplus-light-grey;
+        }
+  
+        &::-moz-range-track {
+          background-color: $sundhedplus-light-grey;
+        }
+  
+        &::-ms-track {
+          background-color: $sundhedplus-light-grey;
+        }
+      }
+    }
+  
+    .submit-btn-container {
+      .submit-btn {
+        &:disabled {
+          background-color: $sundhedplus-lighter-grey;
+          color: $dark-grey;
+        }
+      }
+    }
+  }
+  
+  &.paid-out-details-modal {
+    .di-circle-check {
+      color: $sundhedplus-card-green;
+    }
+    .paid-out-title {
+      color: $sundhedplus-darkest-grey;
+    }
+    .total-paid-out {
+      border: 1px solid $sundhedplus-light-grey;
+    }
+  }  
+}

@@ -1,0 +1,233 @@
+@import 'commonVars';
+
+// zeplin style colors
+$white: #ffffff;
+$light: #fdfdfd;
+$light-grey: #eaeaea;
+$lighter-grey: #f2f2f2;
+$lightest-grey: #f8f8f8;
+$grey: #afafaf;
+$dark-grey: #888888;
+$darker-grey: #444444;
+$darkest-grey: #222222;
+$dark: #111111;
+$neutral-main: #d1d1d1;
+$light-silver: #c1c1c1;
+$vivid-orange: #f6921e;
+$strong-green: #00b300;
+$soft-green:  #9dc5ab;
+$softer-green: #d4f2d6;
+$grey-hover: #fafafa;
+
+$green-main: #339ca6;
+$orange-main: #f3ac00;
+$red-main: #b84949;
+$black: #000000;
+$xred: #d79a9a;
+$xblue: #8ec8cd;
+$toast-success-background: #f5fafa;
+$toast-success-border: #cee7e9;
+$toast-error-background: #fbf6f6;
+$toast-error-border: #edd3d3;
+
+$light-green-main: #dff5f7;
+
+// colors
+$logo-color: $lighter-grey; //keep the name until you find a better one :)
+$form-black: #1a1a1a;
+$dark: $darkest-grey;
+$light: #fcfcfc;
+$error-color: #e26b6b;
+$confirm-green: #92d050;
+$badge-color: $orange-main;
+$very-dark-orange: #222120;
+$very-dark-black: #222120;
+
+// email template colors
+$email-title: #3e484d;
+$email-subtitle: #a7b1b6;
+$email-description: #616161;
+$email-action-button: #81548a;
+$email-footer-border: #d7dbe0;
+$sms-preview-background: #e5e5ea;
+
+$filter-reset: #fff3cd;
+$filter-link: #007bff;
+
+$text-status-red: #dc3545;
+
+// statuses
+$status-green: #339ca6;
+$status-yellow: #f3ac00;
+$status-red: #cf0000;
+$status-inactive: #c0c0c0;
+
+// logo status
+$logo-green: #339ca6;
+$logo-yellow: #ffd570;
+$logo-red: #e88888;
+$logo-grey: #d1d1d1;
+
+// dunning
+$dunning-grey: #D1D1D1;;
+$dunning-blue: #A2DCEB;
+$dunning-red: #e88888;
+$dunning-yellow: #ffd570;
+$dunning-green: #90e496;
+
+// suspend
+$suspend-yellow: #ffd570;
+
+$status-debtCollection: #e88888;
+$status-dialogue: #a2dceb;
+$status-noContact: #ffd570;
+$status-notContacted: #d1d1d1;
+$status-agreement: #90e496;
+
+// sort arrow
+$arrow-color: $neutral-main;
+$arrow-color-select: darken($arrow-color, 30%);
+
+// card
+$card-red: #e10000;
+$card-yellow: #f3ac00;
+$card-green: #00b20d;
+
+// filters
+$filter-border: #d3d3d3;
+
+// sizes
+$dropdown-border-radius: 0.25rem;
+
+// tabs
+$tab-inactive: $light-grey;
+
+// tooltips
+$tooltip-bg: $darkest-grey;
+$tooltip-arrow-color: $tooltip-bg;
+$tooltip-base-size: 10px;
+$tooltip-arrow-height: 8px;
+$tooltip-margin: 16px;
+
+$denti-animation-color: #a89275;
+
+$select-title-color: #333333;
+$select-text-color: #969696;
+$select-border-color: #dbdbdb;
+$placeholder-icon-color: #c5c4c5;
+
+//fonts
+$font-family: "Maven Pro Regular", "Open Sans", sans-serif;
+$font-family-bold: "Maven Pro Bold", "Open Sans", sans-serif;
+$font-family-medium: "Maven Pro Medium", "Open Sans", sans-serif;
+$font-family-black: "Maven Pro Black", "Open Sans", sans-serif;
+
+// font variables
+$font-path: "../../fonts" !default;
+$images-path: "../../images" !default;
+
+// animation
+$animation-duration: 300ms;
+
+$di-home: "\e900";
+$di-approve: "\e901";
+$di-bell: "\e902";
+$di-close: "\e903";
+$di-create-credit: "\e904";
+$di-credit-amount: "\e905";
+$di-coins: "\e905";
+$di-verified: "\e906";
+$di-calendar: "\e907";
+$di-decline: "\e908";
+$di-dropdown: "\e909";
+$di-edit: "\e90a";
+$di-email-open: "\e90b";
+$di-help: "\e90c";
+$di-logout: "\e90d";
+$di-notes: "\e90e";
+$di-password: "\e90f";
+$di-lock: "\e90f";
+$di-phone: "\e910";
+$di-preferred: "\e911";
+$di-print: "\e912";
+$di-referrals: "\e913";
+$di-leads: "\e913";
+$di-email-closed: "\e914";
+$di-save: "\e915";
+$di-search: "\e916";
+$di-sms: "\e917";
+$di-tooth: "\e918";
+$di-rotate-phone: "\e919";
+$di-calculator: "\e91a";
+$di-cpr: "\e91b";
+$di-delete: "\e91c";
+$di-cancel: "\e91d";
+$di-check: "\e91e";
+$di-credit-card: "\e91f";
+$di-open-new: "\e920";
+$di-controls: "\e921";
+$di-export: "\e922";
+$di-dunning: "\e923";
+$di-users: "\e924";
+$di-loan-count: "\e925";
+$di-sundhedplus: "\e926";
+$di-denti: "\e927";
+$di-chevron-right: "\e928";
+$di-circle-check: "\e929";
+$di-add-user: "\e92a";
+$di-circle-plus: "\e92b";
+
+
+// ####### SUNDHEDPLUS #########
+$sundhedplus-light-grey: #f1e8e2;
+$sundhedplus-lighter-grey: #f6f0ee;
+$sundhedplus-lightest-grey: #faf8f6;
+$sundhedplus-darkest-grey: #222120;
+$sundhedplus-login-bg-color: #f5f0ef;
+
+$sundhedplus-red-main: #be323c;
+$sundhedplus-red-secudary: #F6F0EE;
+$sundhedplus-orange-main: #f3ac00;
+$sundhedplus-animation-color: #aa7434;
+
+$sundhedplus-green-main: #339ca6;
+
+$sundhedplus-brawn: #996b68;
+$sundhedplus-green-brawn: #998064;
+
+$sundhedplus-light-grayish-orange: #f8f4ec;
+$sundhedplus-lighter-grayish-orange: #f4eeea;
+$sundhedplus-light-grayish-red: #e2dbd9;
+$sundhedplus-grayish-orange: #d2c4c0;
+$sundhedplus-very-dark-orange: #222120;
+$sundhedplus-very-dark-black: #222120;
+
+$sundhedplus-light-red-main: #f6f0ee;
+
+$sundhedplus-selected-radio-button: #94C6AB;
+$sundhedplus-badge-color: $sundhedplus-orange-main;
+
+// statuses
+$sundhedplus-status-green: #71ae8c;
+$sundhedplus-status-stable: #888888;
+$sundhedplus-status-accepted: #94C6AB;
+
+// logo status
+$sundhedplus-logo-green: #71ae8c;
+$sundhedplus-link: #71ae8c;
+$sundhedplus-logo-yellow: #ffd570;
+$sundhedplus-logo-red: #e88888;
+$sundhedplus-logo-grey: #d1d1d1;
+
+// dunning
+$sundhedplus-dunning-green: #94c6aa;
+
+// suspend
+$sundhedplus-status-agreement: #94c6aa;
+
+// card
+$sundhedplus-card-green: #63b587;
+
+
+
+

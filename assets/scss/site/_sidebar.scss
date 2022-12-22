@@ -1,0 +1,707 @@
+.sidebar-wrapper {
+  color: $white;
+  display: block;
+  height: 100vh;
+  min-height: 100%;
+  position: fixed;
+  z-index: 30;
+  transform: translate3d(-100%, 0, 0);
+  visibility: hidden;
+  padding: 0;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+
+  // -webkit-transition:width .05s linear;
+  // transition:width .05s linear;
+
+  @include media-breakpoint-up(lg) {
+    position: relative;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+    width:70px;
+  }
+
+  @include media-breakpoint-up(xwd) {
+    width: 250px;
+  }
+
+  .foreground {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    // background-color: rgba($black, 0.1);
+    position: absolute;
+    display: none;
+  }
+
+  &.open {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+
+    .foreground {
+      display: block;
+    }
+  }
+
+  .sidebar-section {
+    background-color: $dark;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    max-width: 250px;
+    z-index: 10;
+    position: relative;
+    box-shadow: 10px 0 30px 0 rgba($black, 0.3);
+
+    @include media-breakpoint-up(lg) {
+      box-shadow: none;
+      height: 100%;
+      position: relative;
+      left: 0;
+      max-width: 100%;
+      min-width: 250px;
+    }
+
+    .header {
+      justify-content: center;
+      height: 80px;
+      min-height: 80px;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 50px;
+      }
+
+      .title {
+        margin-left: 24px;
+        a{
+          @include plain-all {
+            text-decoration: none;
+            color: $white;
+          }
+        }
+
+        .di-denti{
+          display: block;
+          position: absolute;
+          top: 2.5%;
+
+        }
+        .brandLogo{
+          display: block;
+          opacity: 0;
+        }
+
+        @include media-breakpoint-up(lg) {
+          .di-denti {
+            animation: easeOut 0.4s linear normal 1;
+          }
+
+          .brandLogo{
+            animation: easeOut 0.4s linear normal 1, fadeOut ease 0.5s;
+          }
+        }
+
+        // make the menu be visible on extra wide screens
+        @include media-breakpoint-up(xwd) {
+          margin-left: 0;
+          .di-denti {
+            display: none;
+  
+          }
+          .brandLogo {
+            display: block;
+            opacity: 1;
+            margin: 0 auto;
+            animation: none;
+          }
+        }
+
+        @include media-breakpoint-down(md) {
+          margin:0 auto;
+
+          .di-denti{
+            display: none;
+          }
+
+          .brandLogo{
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+
+      @include media-breakpoint-down(lg) {
+        overflow-y: auto;
+        height: 1px;
+        min-height: 1px;
+      }
+    }
+
+    .menu {
+      padding: {
+        bottom: 0.5rem;
+      }
+
+      .list-group {
+        padding-bottom: 15px;
+        background-color: $form-black;
+      }
+
+      .list-group-item {
+        background-color: $form-black;
+        color: $dark-grey;
+        border: 0;
+        display: flex;
+        flex-direction: row;
+        padding: 4px 25px 4px 50px;
+        cursor: pointer;
+
+        position: relative;
+        align-items: center;
+        @include font-style(12px, 400, 12px);
+
+        @include hover {
+          background-color: $dark;
+        }
+
+        .badge {
+          color: $dark-grey;
+          background-color: $darkest-grey;
+          min-width: 38px;
+          text-align: center;
+          padding: 3px;
+          letter-spacing: 0.5px;
+          cursor: default;
+          margin-left: auto;
+          @include font-style(12px, 400, 12px);
+        }
+
+        &.active {
+          color: $white;
+          @include font-style(12px, 500, 12px);
+
+          &:before {
+            position: absolute;
+            top: 8px;
+            margin: 1px 0 0 -21px;
+            border-radius: 4px;
+            vertical-align: middle;
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            // background: $green-main;
+            content: "";
+          }
+
+          .badge {
+            @include font-style(12px, 500, 12px);
+            color: $white;
+            background-color: $green-main;
+          }
+        }
+      }
+    }
+
+    .menu-item {
+      border-left: 6px solid transparent;
+      button, a {
+        padding: 16px 0px 16px 18px;
+        @include font-style(14px, 500, 16px);
+        display: block;
+
+        @include plain-all() {
+          color: $white;
+          text-decoration: none;
+          outline: 0;
+        }
+      }
+
+      .di {
+        font-size: 24px;
+        vertical-align: middle;
+        margin-right: 25px;
+      }
+
+      .lnil {
+        font-size: 24px;
+        vertical-align: middle;
+        margin-right: 25px;
+      }
+
+      .lnir {
+        font-size: 24px;
+        vertical-align: middle;
+        margin-right: 25px;
+      }
+      &.active {
+        background-color: $form-black;
+        border-left-color:$green-main;
+
+      }
+      &:hover {
+        background-color: $form-black;
+      }
+      button {
+        background-color: transparent;
+        border: 0;
+        text-align: left;
+        width: 100%;
+      }
+    }
+
+    .footer {
+      .help-section {
+        border-bottom-color: $white;
+        position: relative;
+        z-index: 100;
+        height: 64px;
+
+        .list-group {
+          width: 260px;
+          margin: 0;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+        .list-group-item {
+          background-color: $form-black;
+          color: $white;
+          border: 0;
+          line-height: 1;
+
+          &.login-help {
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .di-help {
+              font-size: 1.5rem;
+              @include media-breakpoint-up(md) {
+                font-size: 2rem;
+              }
+              margin-right: 1rem;
+            }
+
+            .login-help-label, .login-help-number {
+              display: block;
+            }
+
+            .login-help-label {
+              @include font-style(12px, 400, 20px);
+            }
+
+            .login-help-number {
+              @include font-style(20px, 700, 20px);
+            }
+          }
+
+          &:first-child {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+          }
+
+          &:last-child {
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+          }
+
+          & + & {
+            margin-bottom: 0;
+          }
+        }
+
+        .guide-link, .guide-link.hide {
+          display: none;
+          color: $white;
+          background-color: $green-main;
+          padding-left: 2.5rem;
+          margin-bottom: 0;
+
+          border: {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 1px solid rgba($white, 0.5);
+          }
+
+          a {
+            position: relative;
+            color: $white;
+            @include font-style(12px, 700, 12px);
+
+            @include plain-all {
+              text-decoration: none;
+            }
+
+            &:before {
+              position: absolute;
+              top: 8px;
+              margin: 5px 0 0 -20px;
+              vertical-align: middle;
+              display: inline-block;
+              width: 5px;
+              height: 5px;
+              background: $white;
+              content: "";
+            }
+          }
+        }
+
+        @include hover {
+          .guide-link {
+            display: block;
+          }
+
+          .login-help {
+            background-color: $green-main;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+      }
+
+      .logout, .help {
+        margin: 10px 0;
+        background-color: $dark;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-left: 6px solid transparent;
+
+        .logout-link, .help-link {
+          background-color: $dark;
+          color: $white;
+          font-size: 24px;
+          margin-right: 10px;
+          padding: 1rem;
+          width: 100%;
+          display: inherit;
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          @include hover-focus {
+            outline: none;
+          }
+
+          .logout-label, .help-label {
+            padding-left: 30px;
+            @include font-style(14px, 500, 16px);
+          }
+        }
+      }
+
+      .user-info {
+        padding: 0 10px 0 10px;
+        text-align: center;
+        @include font-style(14px, 400, 16px);
+        margin-bottom: 20px;
+        color: $dark-grey;
+        max-width: 240px;
+        line-height: 1rem;
+        display: flex;
+        align-items: center;
+        border-left: 6px solid transparent;
+        .name_icon{
+          max-width: 38px;
+          min-width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $dark-grey;
+          color: $white;
+          margin-right: 20px;
+          font-size: 24px;
+        }
+        span {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          hyphens: auto;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    @include media-breakpoint-up(lg) {
+      width: 250px;
+      .header {
+        .title {
+          margin-left: 0;
+
+          .di-denti{
+            opacity: 0;
+            animation: easeIn linear 0.3s; // out
+          }
+
+          .brandLogo{
+            opacity: 1;
+            // transition: opacity 1s ease-in;
+            animation: fadeIn ease 2s;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-up(xwd) {
+      .header {
+        .title {
+          margin-left: inherit;
+          .brandLogo {
+            animation: none;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes easeIn {
+    0% {
+      transform: translate(23px, 0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(30px, 0);
+      opacity: 0.8;
+
+    }
+    80% {
+      transform: translate(40px, 0);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translate(50px, 0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes easeOut {
+    0% {
+      transform: translate(30px, 0);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate(20px, 0);
+      opacity: 0.5;
+
+    }
+    80% {
+      transform: translate(10px, 0);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(0px, 0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity:1;
+    }
+}
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .sidebar-wrapper {
+    .sidebar-section {
+      .header {
+        .title {
+          margin-left: 11px;
+          .di-sundhedplus {
+            display: block;
+            position: absolute;
+            top: 2.2%;
+            color: $red-main;
+            font-size: 40px;
+          }
+          .sundhedLogo {
+            display: block;
+            opacity: 0;
+          }
+  
+          @include media-breakpoint-up(lg) {
+            .di-sundhedplus {
+              animation: easeOut 0.4s linear normal 1;
+            }
+  
+            .sundhedLogo {
+              animation: easeOut 0.4s linear normal 1, fadeOut ease 0.5s;
+            }
+          }
+  
+          // make the menu be visible on extra wide screens
+          @include media-breakpoint-up(xwd) {
+            margin-left: 0;
+            .di-sundhedplus {
+              display: none;
+            }
+  
+            .sundhedLogo {
+              display: block;
+              opacity: 1;
+              margin: 0 auto;
+              animation: none;
+            }
+          }
+  
+          @include media-breakpoint-down(md) {
+            margin: 0 auto;
+  
+            .di-sundhedplus {
+              display: none;
+            }
+  
+            .sundhedLogo {
+              opacity: 1;
+            }
+          }
+        }
+      }
+  
+      .menu {
+        .list-group-item {
+          &.active {
+            .badge {
+              background-color: $red-main;
+            }
+          }
+        }
+      }
+
+      .menu-item {
+        &.active {
+          background-color: $form-black;
+          border-left-color: $red-main;
+        }
+      }
+  
+      .footer {
+        .help-section {
+          .guide-link,
+          .guide-link.hide {
+            background-color: $red-main;
+          }
+  
+          @include hover {
+            .login-help {
+              background-color: $red-main;
+            }
+          }
+        }
+      }
+    }
+  
+    &:hover {
+      @include media-breakpoint-up(lg) {
+        width: 250px;
+        .header {
+          .title {
+            .di-sundhedplus {
+              opacity: 0;
+              animation: easeIn linear 0.3s;
+            }
+  
+            .sundhedLogo {
+              opacity: 1;
+              animation: fadeIn ease 2s;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+  
+      @include media-breakpoint-up(xwd) {
+        .header {
+          .title {
+            .sundhedLogo {
+              animation: none;
+            }
+          }
+        }
+      }
+    }
+  
+    @keyframes easeIn {
+      0% {
+        transform: translate(15px, 0);
+        opacity: 1;
+      }
+  
+      50% {
+        transform: translate(20px, 0);
+        opacity: 0.8;
+  
+      }
+  
+      80% {
+        transform: translate(25px, 0);
+        opacity: 0.3;
+      }
+  
+      100% {
+        transform: translate(30px, 0);
+        opacity: 0;
+      }
+    }
+  
+    @keyframes easeOut {
+      0% {
+        transform: translate(15px, 0);
+        opacity: 0.2;
+      }
+  
+      50% {
+        transform: translate(10px, 0);
+        opacity: 0.5;
+  
+      }
+  
+      80% {
+        transform: translate(5px, 0);
+        opacity: 0.8;
+      }
+  
+      100% {
+        transform: translate(0px, 0);
+        opacity: 1;
+      }
+    }
+  }
+}

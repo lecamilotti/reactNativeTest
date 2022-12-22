@@ -1,0 +1,323 @@
+.entity-information-card {
+    .media {
+        min-height: 68px;
+        margin-bottom: 5px;
+        .logo{
+          padding-top: 8px;
+        }
+      }
+      .header-text{
+        display: flex;
+        align-items: center;
+        .card-loked-data{
+          background-color: $lightest-grey;
+          border-radius: 10px;
+          margin-left: 10px;
+          height: 26px;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          .iconzone{
+            padding: 2px 21px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            .time{
+              padding-left: 5px;
+            }
+          }
+          i{
+            padding-right: 13px;
+          }
+          .di-denti{
+            color: $status-green;
+          }
+          .di-sundhedplus{
+            color: $status-red;
+          }
+        }
+
+        @media only screen and (max-width: 400px) {
+           .card-loked-data {
+            .iconzone {
+              padding: 2px 8px;
+            }
+          }
+      }
+        @media only screen and (max-width: 580px) {
+          & {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .card-loked-data {
+            margin-left: 0;
+            .iconzone {
+              padding: 2px 10px;
+            }
+            
+          }
+        }
+
+        @media only screen and (max-width: 400px) {
+          .card-loked-data {
+            .iconzone {
+              padding: 2px 7px;
+            }
+          }
+      }
+       
+      }
+      
+      .custom-form-control {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: solid 1px $light-grey;
+        border-radius: unset;
+        font-size: 14px;
+        color: $darkest-grey;
+        padding-left: 0;
+   
+        &:focus {
+          border-bottom: solid 2px $green-main;
+          box-shadow: none;
+        }
+      }
+   
+      .header-actions{
+        display: flex;
+        .refresLeadhButton {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: $lightest-grey;
+          border: solid 1px $lightest-grey;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 10px;
+          cursor: pointer;
+          &:hover {	
+            transition: all .2s ease-in-out;	
+            background-color: $lighter-grey;	
+          }
+    
+        }
+        @media only screen and (max-width: 380px) {
+          & {
+            flex-direction: column-reverse;
+          
+            
+          }
+           .refresLeadhButton{
+           
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+          
+           
+           }
+         
+          }
+        button{
+          margin-right: 8px;
+          border: none;
+          .icon{
+            margin-right: 10px;
+          }
+          .center_Text{
+          }
+        }
+        .menu-items{
+          width: 175px;
+        }
+        @media only screen and (max-width: 380px) {
+          position: absolute;
+          right: 5px;
+
+          
+        }
+    
+      }
+      .media-body-title{
+        font-size: 12px;
+        padding-bottom: 3px;
+        display: flex;
+      }
+      .media-body-content{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .fullWidth{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+   
+        }
+        input{ padding: 0px; }
+        .name1 {
+          width: 45%;
+        }
+        .name2 {
+          width: 45%;
+        }
+        .name3 {
+          width: 100%;
+        }
+        .name5 {
+          width: 30%;
+        }
+        .name6 {
+          width: 60%;
+        }
+
+    .kotnir1 {
+      width: 30%;
+    }
+
+    .kotnir2 {
+      width: 60%;
+    }
+  }
+  .nameAndAdress {
+    display: block;
+  }
+  .brand {
+    display: block;
+    button:first-child {
+      margin-right: 10px;
+    }
+    button {
+      border: none;
+      height: 30px;
+      padding: 2px 20px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 30px;
+    }
+  }
+  .marketingFee {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    .input-wrapper {
+      position: relative;
+      display: inline-block;
+      input {
+        width: 90px;
+        text-align: right;
+        padding-right: 15px;
+      }
+      span {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        line-height: 100%;
+        vertical-align: middle;
+        font-size: 14px;
+        color: $darker-grey;
+      }
+    }
+    span {
+      margin-left: 10px;
+      color: $grey;
+      font-size: 12px;
+      &.marketingFeeEditCustomMsg {
+        color: $orange-main;
+      }
+    }
+  }
+
+  .dateField {
+    border: none;
+    border-bottom: 1px solid $light-grey;
+    width: 100%;
+    outline: none;
+  }
+  .card-title {
+    font-size: 2.25rem !important;
+    @media screen and (max-width: 380px) {
+      font-size: 1.5rem  !important;
+ 
+     
+    }
+      
+    }
+  
+  .error {
+    color: $error-color;
+    text-transform: none;
+    font-size: 12px;
+    margin-left: 20px;
+  }
+  //   .zone1, .zone2 {
+  //     min-width: 370px;
+  //     max-width: 370px;
+  //     @media only screen and (max-width: 1305px) {
+  //       min-width: 50%;
+  //       max-width: 50%;
+  //     }
+  //   }
+  //   .zone1{
+  //     .row{
+  //       height: 100%;
+  //     }
+  //   }
+        @media only screen and (max-width: 600px) {
+          &.edit-mode {
+            .header-information {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+            .header-text {
+              margin-bottom: 20px;
+            }
+          }
+    
+        }
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .entity-information-card {
+    .header-text {
+      .card-loked-data {
+        background-color: $sundhedplus-lightest-grey;
+
+        .di-denti {
+          color: $sundhedplus-status-green;
+        }
+
+        .di-sundhedplus {
+          color: $status-red;
+        }
+      }
+    }
+
+    .custom-form-control {
+      border-bottom: solid 1px $sundhedplus-light-grey;
+      color: $sundhedplus-darkest-grey;
+
+      &:focus {
+        border-bottom: solid 2px $sundhedplus-status-green;
+        box-shadow: none;
+      }
+    }
+
+    .header-actions {
+      .refresLeadhButton {
+        background-color: $sundhedplus-lightest-grey;
+        border: solid 1px $sundhedplus-lightest-grey;
+        &:hover {
+          background-color: $sundhedplus-lighter-grey;
+        }
+      }
+    }
+
+    .dateField {
+      border: none;
+      border-bottom: 1px solid $sundhedplus-light-grey;
+    }
+  }
+}

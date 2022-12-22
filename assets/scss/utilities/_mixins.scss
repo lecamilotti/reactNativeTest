@@ -1,0 +1,116 @@
+@import 'breakpoints';
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Hover status mixin
+@mixin hover {
+  &:hover {
+    @content
+  }
+};
+
+@mixin focus {
+  &:focus {
+    @content
+  }
+};
+
+@mixin active {
+  &:active {
+    @content
+  }
+};
+
+@mixin hover-focus {
+  &:hover, &:focus {
+    @content
+  }
+};
+
+@mixin plain-hover-focus {
+  &, &:hover, &:focus {
+    @content
+  }
+};
+
+@mixin plain-active {
+  &, &:active {
+    @content
+  }
+};
+
+@mixin hover-focus-active {
+  &:hover, &:focus, &:active {
+    @content
+  }
+};
+
+@mixin plain-all {
+  &, &:hover, &:focus, &:active {
+    @content
+  }
+};
+
+// font style mixin
+@mixin font-style($size, $weight, $lineHeight) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  line-height: $lineHeight;
+}
+
+
+// arrpw point direction
+@mixin tooltip-arrow ($color, $position: up) {
+
+  @if ($position == up) {
+      border-left: $tooltip-arrow-height solid transparent;
+      border-right: $tooltip-arrow-height solid transparent;
+      border-top: $tooltip-arrow-height solid $tooltip-arrow-color;
+  } @else if ($position == down) {
+      border-left: $tooltip-arrow-height solid transparent;
+      border-right: $tooltip-arrow-height solid transparent;
+      border-bottom: $tooltip-arrow-height solid $tooltip-arrow-color;
+  } @else if ($position == left) {
+      border-top: $tooltip-arrow-height solid transparent;
+      border-bottom: $tooltip-arrow-height solid transparent;
+      border-left: $tooltip-arrow-height solid $tooltip-arrow-color;
+  } @else if ($position == right) {
+      border-top: $tooltip-arrow-height solid transparent;
+      border-bottom: $tooltip-arrow-height solid transparent;
+      border-right:$tooltip-arrow-height solid $tooltip-arrow-color;
+  }
+  width: 0;
+  height: 0;
+}
+
+@mixin ie-grid-fallback($sizeXs: 20%, $sizeSm: 20%, $sizeXl: 20%) {
+  flex-basis: $sizeXs;
+  max-width: $sizeXs;
+
+  @include media-breakpoint-up(sm) {
+    flex-basis: $sizeSm;
+    max-width: $sizeSm;
+  }
+
+  @include media-breakpoint-only(xl) {
+    flex-basis: $sizeXl;
+    max-width: $sizeXl;
+  }
+}
+
+@mixin higher-devices {
+  @media (max-width: 768px) and (min-height: 680px) {
+    @content
+  }
+}

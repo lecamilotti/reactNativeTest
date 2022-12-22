@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Denti-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect x="6" y="0" width="18.4615385" height="30" id="rect-1"></rect>
+    </defs>
+    <g id="Denti-icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d-for-denti">
+            <image x="6" y="0" width="18.4615385" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAABOCAYAAABmKpU2AAAABGdBTUEAALGOGCHvlwAABGBJREFUaAXtWz1oFEEUvgsBFQLGSq2CSUAEQcHGIpADQSy1CqRJoYWFQlBBLKwsgoVwYBux84cU0SKNIJgYiAhiYyOouYCoAcUNCBYG4vdNZobLZnfmbW5vdwL74N3M7Lx573vvzezczt7Va7uITk0/mgTcK+BBcB0c9eIjeALwAYB8Az4UB9sTvxBaG+DHgGkZvA08sTINwZKO/CcATJspUegZeOkArwIfrAOI/ggQDimUjo9gHQDm+w7ctitkB45alI5KyA7sc+C2XSE7YEG6KpUDrugU0VdloIgou2xUGXBFp4i+KgNFRNllo8qAKzpF9O36DKQ96YiCp5+YLkD4OHhYD+K3yL263l78QuMr+Dd4Hjz77tL4CsqOKNMjpX7IuA6Lp8EHwZnGJyD9i2sfwVfhzGJ7P2xttLdT6pEXgI7ybSgYB4u+4qYY812OIHAZjjyloNQB5xqAklno4onARXA3wUN9rR/8BDbfsyGlxAxACZ9HX4C7DToNJ7NBh3y0/VQC4HkOswAuCzxBS8BTrrZlCmnwj3E9MTNqRGAfWxwAtoe7CTxjaR1A9KfRLnPaEE9msg5g5ETm0QEMUDsxoj8FLKqeERM3om9g7rDPzFjcy5umbkrYGECduzbJ7NzctTvaENVihXIeoHqP8WgZtAF+Dr4X3z3ZuROC/UmM47m/FIMxs7kTQ8E/XJFkgBE/BuArRkOeJXBwJtwES++CUR2DmNoW2EeM/JFugTfGgYe7/3nT9pRqIzPz0iNb+9Jt8BoAp5OYeBcaFUq/Esp1JKaDFEmV0IEDQuEPQrk8xFpSJXTghEQYkWlK5HKSaUn1tG9k0jFFyM1LjdCBPoHwukCmFBE6ILn//ykFncBokFMoy3oL0gFB4K1I5YANRUmVKgMlBd6arTJgQ1FSpcpASYG3ZqsM2FCUVKkyUFLgrdkqAzYUOVZwtDImVccM8LzHR3t8Ajn3Hxbqa9GBNYFwqKfWa6GuAR7+iogOtCSSWealRJ9HZtjTb7qXpFOIA06aUQWUorMq4FilA0tCQOeEcnmI7RcqmaUDc0Jh8bwU6ksUw1SdQofkeH2d56g9+FjEAMmttBfK+SKkawT9A1B+Q2jgJ+WYAdLqZuH9HIKR7+ARr2RGAeicxpBlsOSgjdrVzDHCbPDnBBLiHxFewyDf1rwFcw3N6UyiKiOM53sATssGeBAsmTYQs3SHNTUIypg6ep9VCXXEyXW23wdhE7T4uCztHwiY2q3VFOJiwOiFLBocsv3oS+M8wNP0XWNfOaAbEyg3TEfA5WcEvGnwWQd0Fq6ZjkBLrrsz7disA7yoPXvQLhBQne8ozupAW1iJixaLmptJlve1VmGXKox84vvpRAcIAk7wXj8DTvz/FmUKIK7JBUS9kWYr1QEzQN+vmY0iHVHAYXMiPmUMLlN6HTCCOiP8xWIDzNtk3sQ5vgKeAehbUuViB+IKdWZGcZ3vmc3XX8lGFWld5nekO9rJDZ7/0mXmHk4Tgp0AAAAASUVORK5CYII="></image>
+            <use  fill-rule="evenodd" xlink:href="#rect-1"></use>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,94 @@
+.logs {
+  .header-information {
+    margin-bottom: 2rem;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 440px) {
+      width: 440px;
+     }
+
+  }
+
+  .log-information {
+    background-color: $white;
+    border: 1px solid $tab-inactive;
+    color: $darkest-grey;
+    min-height: 1px;
+    height: 500px;
+   
+      
+    
+    
+  
+  }
+  .log-header {
+    background-color: $white;
+    border: 1px solid $tab-inactive;
+    border-bottom-width: 0;
+
+    .log-cell {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .log-user {
+      margin-right: 20px;
+    }
+  }
+
+  .log-header, .log-entry {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .log-entry {
+    border-bottom: 1px solid $tab-inactive;
+    border-right: 1px solid $tab-inactive;
+    padding: {
+      top: 10px;
+      bottom: 10px;
+    }
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: -1px;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .log-cell {
+    flex: 0 1 33%;
+    padding: {
+      top: 5px;
+      bottom: 5px;
+      left: 10px;
+    }
+  }
+  .log-date {
+    flex-basis: 20%;
+  }
+
+  .log-event {
+    flex-basis: 50%;
+    flex-grow: 1;
+    padding-right: 10px;
+
+    .event-details {
+      white-space: pre-line;
+    }
+  }
+
+  .log-user {
+    flex-basis: 30%;
+    flex-grow: 1;
+  }
+  .scrollbar-wrapper {
+    margin-right: 20px;
+    height: 100%;
+    border-right: 1px solid $tab-inactive;
+  }
+}

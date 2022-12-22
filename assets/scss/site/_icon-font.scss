@@ -1,0 +1,299 @@
+
+.di {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'denti-icon';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}
+
+.di-home, .di-address {
+  &:before {
+    content: unicode($di-home);
+  }
+}
+
+.di-approve {
+  &:before {
+    content: unicode($di-approve);
+  }
+}
+
+.di-bell, .di-notification {
+  &:before {
+    content: unicode($di-bell);
+  }
+}
+
+.di-close {
+  &:before {
+    content: unicode($di-close);
+  }
+}
+
+.di-create-credit, .di-new-item  {
+  &:before {
+    content: unicode($di-create-credit);
+  }
+}
+
+.di-credit-amount {
+  &:before {
+    content: unicode($di-credit-amount);
+  }
+}
+
+.di-coins {
+  &:before {
+    content: unicode($di-coins);
+  }
+}
+
+.di-verified {
+  &:before {
+    content: unicode($di-verified);
+  }
+}
+
+.di-calendar {
+  &:before {
+    content: unicode($di-calendar);
+  }
+}
+
+.di-decline {
+  &:before {
+    content: unicode($di-decline);
+  }
+}
+
+.di-dropdown {
+  &:before {
+    content: unicode($di-dropdown);
+  }
+}
+
+.di-edit {
+  &:before {
+    content: unicode($di-edit);
+  }
+}
+
+.di-email-opened {
+  &:before {
+    content: unicode($di-email-open);
+  }
+}
+
+.di-help {
+  &:before {
+    content: unicode($di-help);
+  }
+}
+
+.di-logout {
+  &:before {
+    content: unicode($di-logout);
+  }
+}
+
+.di-notes {
+  &:before {
+    content: unicode($di-notes);
+  }
+}
+
+.di-password {
+  &:before {
+    content: unicode($di-password);
+  }
+}
+
+.di-lock {
+  &:before {
+    content: unicode($di-lock);
+  }
+}
+
+.di-phone {
+  &:before {
+    content: unicode($di-phone);
+  }
+}
+
+.di-preferred {
+  &:before {
+    content: unicode($di-preferred);
+  }
+}
+
+.di-print {
+  &:before {
+    content: unicode($di-print);
+  }
+}
+
+.di-referrals {
+  &:before {
+    content: unicode($di-referrals);
+  }
+}
+
+.di-leads {
+  &:before {
+    content: unicode($di-leads);
+  }
+}
+
+.di-email-closed {
+  &:before {
+    content: unicode($di-email-closed);
+  }
+}
+
+.di-save {
+  &:before {
+    content: unicode($di-save);
+  }
+}
+
+.di-search {
+  &:before {
+    content: unicode($di-search);
+  }
+}
+
+.di-sms {
+  &:before {
+    content: unicode($di-sms);
+  }
+}
+
+.di-tooth {
+  &:before {
+    content: unicode($di-tooth);
+  }
+}
+
+.di-rotate-phone {
+  &:before {
+    content: unicode($di-rotate-phone);
+  }
+}
+
+.di-calculator {
+  &:before {
+    content: unicode($di-calculator);
+  }
+}
+
+.di-cpr, .di-asterix {
+  &:before {
+    content: unicode($di-cpr);
+  }
+}
+
+.di-trash, .di-delete {
+  &:before {
+    content: unicode($di-delete);
+  }
+}
+
+.di-cancel, .di-revoke {
+  &:before {
+    content: unicode($di-cancel);
+  }
+}
+
+.di-accept, .di-check {
+  &:before {
+    content: unicode($di-check);
+  }
+}
+.di-credit-card {
+  &:before {
+    content: unicode($di-credit-card);
+  }
+}
+
+.di-open-new {
+  &:before {
+    content: unicode($di-open-new);
+  }
+}
+
+.di-controls {
+  &:before {
+    content: unicode($di-controls);
+  }
+}
+
+.di-export {
+  &:before {
+    content: unicode($di-export);
+  }
+}
+
+.di-dunning {
+  &:before {
+    content: unicode($di-dunning);
+  }
+}
+
+.di-users {
+  &:before {
+    content: unicode($di-users);
+  }
+}
+
+.di-loan-count {
+  &:before {
+    content: unicode($di-loan-count);
+  }
+}
+
+.di-sundhedplus {
+  &:before {
+    content: unicode($di-sundhedplus);
+  }
+}
+
+.di-denti {
+  &:before {
+    content: unicode($di-denti);
+  }
+}
+
+.di-chevron-right {
+  &:before {
+    content: unicode($di-chevron-right);
+  }
+}
+
+.di-circle-check {
+  &:before {
+    content: unicode($di-circle-check);
+  }
+}
+
+.di-add-user, .di-add-patient {
+  &:before {
+    content: unicode($di-add-user);
+  }
+}
+
+.di-circle-plus {
+  &:before {
+    content: unicode($di-circle-plus);
+  }
+}

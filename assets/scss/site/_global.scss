@@ -1,0 +1,1125 @@
+html, body {
+  min-height: 100vh;
+  height: 100%;
+
+
+  @include media-breakpoint-only(sm) {
+    height: auto;
+  }
+  @media only screen and (max-width: 700px) {
+    height: auto;
+    min-height: unset;
+  }
+}
+
+body {
+  font-family: $font-family;
+  position: relative;
+  color: $darker-grey;
+  overflow: hidden;
+
+  &.modal-open {
+    & > div[tabindex='-1'] {
+      z-index: auto !important;
+    }
+  }
+
+  &.iframe {
+    height: auto;
+  }
+}
+
+/* PRINT SETUP */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm 25mm;
+  }
+
+  html, body {
+    width: 180mm;
+    height: 282mm;
+    overflow: visible;
+  }
+
+  body {
+    padding-top: 15mm;
+  }
+}
+
+#root {
+  height: 100vh;
+  max-height: 100%;
+}
+
+.app-container-height, .app-row-height, .app-col-height {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.main-content{
+  > .row {
+    margin-top: 1.5rem;
+
+    @media only screen and (max-width: 900px) {
+     > .col-12 {
+        margin-bottom: 1.5rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.go-back-to-list {
+  margin-left: 0;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  color: $dark-grey;
+  @media only screen and (min-width: 765px) and (max-width: 1200px) {
+    position: relative;
+    padding: 0!important;
+    text-align: left;
+    margin-top: 10px;
+  }
+  @media only screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+// reset margin to all headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0;
+}
+
+input[type=text]::-ms-clear {
+  color: transparent;
+  display: none;
+}
+
+input[type=password]::-ms-reveal {
+  color: transparent;
+  display: none;
+}
+
+#searchQuery::-ms-clear, .form-control::-ms-clear{
+  display: none;
+}
+
+// fix for firefox red box-shadow on input with reqired attribute
+.form-control {
+  box-shadow: none;
+}
+
+// override btn style
+.btn {
+  border-radius: 20px;
+  padding: 0.75rem 1.25rem;
+
+  @include focus {
+    box-shadow: none;
+  }
+
+  @include font-style(12px, 400, 12px);
+
+  &.btn-light {
+    background-color: $lighter-grey;
+    border-color: $light-grey;
+    color: $darker-grey;
+
+    @include hover-focus-active {
+      background-color: $light-grey;
+    }
+
+  }
+
+  &.btn-download {
+    margin-left: auto;
+    padding: 0;
+    border-color: $grey;
+    color: $black;
+  }
+
+  &.btn-suspended {
+    background-color: $suspend-yellow;
+    color: $white;
+    border: $suspend-yellow;
+
+    @include hover-focus-active {
+      background-color: darker($suspend-yellow, 5%);
+    }
+    > a {
+      color: white;
+    }
+  }
+
+  & > .di {
+    margin-right: 0.5rem;
+  }
+
+  &.btn-blue {
+    background-color: $green-main;
+    color: $white;
+    cursor: pointer;
+
+    @include hover-focus-active {
+      background-color: darken($green-main, 5);
+    }
+    &.btn-secondary {
+      border: none;
+    }
+  }
+
+  &.btn-outline-blue, &.btn-blue.btn-outline {
+    color: $green-main;
+    border-color: $green-main;
+    background-color: transparent;
+
+    @include hover-focus-active {
+      background-color: darken($green-main, 5);
+      color: $white;
+    }
+  }
+
+
+
+  &.disabled, &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// simple logo placeholder
+.logo {
+  .d-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: $green-main;
+    font-family: "Maven Pro Bold";
+    font-size: 14px;
+    background-color: $logo-color;
+    text-align: center;
+    line-height: 32px;
+    margin-right: 1rem;
+    position: relative;
+
+    img {
+      width: 15px;
+      height: 15px;
+      margin-bottom: 8px;
+    }
+
+    &.active, &.inactive {
+      &:after {
+        width: 12px;
+        height: 12px;
+        background-color: $green-main;
+        border-radius: 50%;
+        position: absolute;
+        font-family: 'denti-icon';
+        content: unicode($di-preferred);
+        color: $white;
+        font-size: 6px;
+        line-height: 12px;
+        top: 0;
+        padding-right: 1px;
+        @include media-breakpoint-up(md) {
+          line-height: 11px;
+        }
+      }
+    }
+
+    &.inactive {
+      &:after {
+        background-color: $light-grey;
+      }
+    }
+  }
+}
+
+.late-payment {
+  .has-tooltip {
+    @include font-style(18px, 700, 28px);
+    color: $red-main;
+    padding: 0 5px;
+  }
+}
+
+/* I forced a min-height/height */
+.sidebar-section, .entities-list-section, .entity-details-section {
+  & > .header {
+    height: 130px;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.main-wrapper {
+  @media only screen and (max-width: 600px) {
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+.borderRadius-30 {
+  border-radius: 30px;
+}
+
+.custom-input {
+  padding: 0.5rem 1.5rem;
+}
+
+.loadingGif {
+  background: url("#{$images-path}/loading.svg") no-repeat center center;
+  height: 100px;
+  width: 100px;
+}
+
+// verified icon
+.is-verified {
+  color: $green-main;
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 20px;
+
+  @include media-breakpoint-up(xl) {
+    font-size: 25px;
+  }
+
+  &.small {
+    font-size: 12px;
+    margin-left: 5px;
+    border-radius: 7px;
+  }
+
+  &.expired {
+    color: $grey;
+  }
+}
+
+.media {
+  .media-body {
+    word-wrap: break-word;
+    word-break: break-word;
+    .media-body-title{
+      text-transform: uppercase;
+      color: $grey;
+    }
+  }
+}
+//Toast styles
+//notifiation without link
+.notification-container {
+  min-width: 340px;
+  min-height: 54px;
+
+  @include media-breakpoint-up(md) {
+    min-width: 450px;
+  }
+
+  .notification {
+    color: $black;
+    border-radius: 4px;
+    padding: 15px 35px 15px 56px;
+    box-shadow: 0 0 4px 0 rgba($black, 0.1);
+
+    &:before {
+      font-family: 'denti-icon';
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      right: 15px;
+    }
+
+    .notification-message {
+      .title {
+        @include font-style(14px, 700, 14px);
+        letter-spacing: 0.1px;
+      }
+
+      .message {
+        @include font-style(13px, 400, 13px);
+        letter-spacing: 0.1px;
+        padding-right: 30px;
+      }
+      a {
+        color: $green-main;
+        cursor: pointer !important;
+        &:hover {
+          text-decoration: underline !important;
+        }
+      }
+    }
+
+    .message:after {
+      content: "x";
+      position: absolute;
+      right: 10px;
+      top: 30%;
+      border-radius: 20px;
+      width: 24px;
+      height: 22px;
+      color: $white;
+      text-align: center;
+      @include font-style(16px, 400, 19.2px);
+    }
+
+    &.notification-success {
+      background-color: $toast-success-background;
+      border: solid 1px $toast-success-border;
+
+      &:before {
+        font-family: 'denti-icon';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        color: $green-main;
+        content: $di-approve;
+      }
+
+      .message:after {
+        background-color: $xblue;
+      }
+    }
+
+    &.notification-error {
+      background-color: $toast-error-background;
+      border: solid 1px $toast-error-border;
+
+      &:before {
+        font-family: 'denti-icon';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        content: $di-decline;
+        color: $red-main;
+      }
+
+      .message:after {
+        background-color: $xred;
+      }
+    }
+  }
+
+  &.notification-container-empty {
+    display: none;
+  }
+
+}
+
+//notification system with html embedded
+.notifications-wrapper {
+  .notifications-tr {
+    @include media-breakpoint-up(md) {
+      min-width: 450px;
+      min-height: 54px;
+    }
+
+    .notification {
+      color: $black;
+      border-radius: 4px;
+      box-shadow: 0 0 4px 0 rgba($black, 0.1);
+      padding-left: 50px;
+      height: 100%;
+
+      &:before {
+        position: absolute;
+        left: 12px;
+        top: calc(50% - 15px);
+        font-size: 30px;
+        font-family: 'denti-icon';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        right: 15px;
+      }
+
+      .notification-title {
+        @include font-style(13px, 400, 13px);
+        letter-spacing: 0.1px;
+        color: $black
+      }
+      .notification-message {
+        @include font-style(14px, 400, 16px);
+        letter-spacing: 0.1px;
+        a {
+          color: $green-main;
+        }
+      }
+
+      .notification-dismiss {
+        font-family: "Maven Pro", "Open Sans", sans-serif;
+        font-size: 25px;
+        line-height: 25px;
+        top: calc(50% - 12px)!important;
+        width: 25px;
+        height: 25px;
+        right: 10px;
+      }
+
+      .notification-action-wrapper {
+        .notification-action-button {
+          background: none;
+          cursor: pointer;
+          padding: 0;
+          text-decoration: underline;
+          font-weight: normal;
+        }
+      }
+
+      &.notification-success {
+        background-color: $toast-success-background;
+        border: solid 1px $toast-success-border;
+
+        &:before {
+          color: $green-main;
+          content: $di-approve;
+        }
+
+        .notification-dismiss {
+          background-color: $xblue;
+        }
+
+        .notification-action-wrapper {
+          .notification-action-button {
+            color: $green-main;
+          }
+        }
+      }
+
+      &.notification-error {
+        background-color: $toast-error-background;
+        border: solid 1px $toast-error-border;
+
+        &:before {
+          color: $red-main;
+          content: $di-decline;
+        }
+
+        .notification-dismiss {
+          background-color: $xred;
+        }
+
+        .notification-action-wrapper {
+          display: none;
+
+          .notification-action-button {
+            color: $red-main;
+          }
+        }
+      }
+    }
+
+    &.notification-container-empty {
+      display: none;
+    }
+  }
+}
+
+.menu-toggler {
+  background-color: transparent;
+  padding: 0;
+  $bar-w: 26px;
+  $bar-h: 2px;
+  $bar-color: $dark;
+  @include media-breakpoint-up(xl) {
+    display: none;
+  }
+
+  // hamburger menu
+  .menu-toggler-icon {
+    width: $bar-w;
+    height: ($bar-w * 3) /4;
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+
+    span {
+      position: absolute;
+      left: 0;
+      width: $bar-w;
+      height: $bar-h;
+      background-color: $bar-color;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+      }
+
+      &:nth-child(3) {
+        top: 100%;
+      }
+    }
+  }
+
+  // close icon
+  .close-toggler-icon {
+    $bar-w: 28px;
+    width: $bar-w;
+    height: ($bar-w * 3) /4;
+    position: relative;
+
+    span {
+      position: absolute;
+      left: 0;
+      width: $bar-w;
+      height: $bar-h;
+      background-color: $bar-color;
+
+      &:nth-child(1) {
+        top: 50%;
+        transform: translateX(0) translateY(0) translateZ(0) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateX(0) translateY(0) translateZ(0) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+#iframeContentToPrint {
+  width: 0;
+  height: 0;
+  top: 5px;
+  left: 15px;
+  position: absolute;
+}
+
+.pagination {
+  margin: 0;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  li {
+    outline: none;
+  }
+
+  .page-link {
+    color: $green-main;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: $green-main;
+    border-color: $green-main;
+    outline: none !important;
+  }
+}
+
+a.denti-link {
+  @include plain-all {
+    text-decoration: none;
+    color: $green-main;
+  }
+}
+.loading-message {
+  position: absolute;
+  z-index: 5000;
+  background-color: $white;
+  left: 0;
+  right: 0;
+}
+.main-content {
+  .loading-message {
+    position: absolute;
+    z-index: 5000;
+    background-color: rgba(255,255,255,0.85);
+    left: 20px;
+    right: 20px;
+  }
+}
+.media.align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  &.not-modified {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.3;
+  }
+  &.not-clickable {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  &.not-active.btn {
+    background-color: #f2f2f2;
+    border-color: #eaeaea;
+    color: #444444;
+    pointer-events: none;
+  }
+}
+
+input, select, textarea {
+  @include media-breakpoint-down(sm) {
+    font-size: 16px!important;
+    line-height: 1!important;
+  }
+}
+
+.custom-label {
+  position: absolute;
+  top: 5px;
+  bottom: 0;
+  left: 60px;
+}
+.text-danger {
+  font-size: 12px;
+}
+.regNo .text-danger {
+  position: absolute;
+  width: 100%;
+}
+
+img.brandLogo {
+    width: 140px;
+    height: 30px;
+}
+
+.di-calculator {
+  font-size: 14px;
+}
+
+input {
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+.no-break-line {
+  white-space: nowrap;
+}
+.btn-small {
+  font-size: 13px;
+  height: 30px;
+  padding: unset;
+}
+
+.main-wrapper {
+  aside {
+    padding-left: 25px;
+    padding-right: 25px;
+    .subnav {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      position: relative;
+      &::before {
+        content : "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 90%;
+        margin: 0px 5%;
+        border-bottom: 1px solid $light-grey;
+      }
+      &:last-of-type {
+        &::before {
+          border-bottom: none;
+        }
+      }
+    
+      .settings-headline {
+        font-size: 16px;
+        font-family: $font-family-medium;
+        padding: 10px 15px;
+      }
+      menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          line-height: 30px;
+          padding: 0 15px;
+          border-radius: 20px;
+          margin: 5px 0;
+          font-size: 14px;
+          border: 1px solid transparent;
+          cursor: pointer;
+          &.default {
+            background-color: $lightest-grey;
+            border: 1px solid $lighter-grey;
+          }
+          &.active {
+            border: 1px solid $green-main;
+            transition: 0.1s;
+          }
+        }
+      }
+    }
+  }
+}
+.action-buttons {
+  button {
+    margin-left: 5px;
+  }
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.pr-10 {
+  padding-right: 10px !important;
+}
+
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
+}
+.search-wrapper.loading {
+  position: relative;
+  .clinic-search {
+    i {
+      display: none;
+    }
+  }
+  .ButtonLoader_component {
+    position: absolute;
+    color: $grey;
+    right: 30px;
+    top: 55px;
+    z-index: 10;
+  }
+  &.grant-access {
+    .ButtonLoader_component {
+      top: 25px;
+    }
+  }
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+.filter-loader {
+  position: absolute;
+  right: 5%;
+  top: 35%;
+  font-size: 30px;
+  .ButtonLoader_component {
+    color: $grey;
+  }
+}
+.suggestions-loader {
+  height: 63px;
+  padding: 20px !important;
+  .ButtonLoader_component {
+    color: $grey;
+  }
+}
+.filter-content {
+  .filter-loader {
+    right: 8%;
+    .ButtonLoader_component {
+      margin: 3px auto;
+      width: 3px;
+      height: 3px;
+    }
+  }
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.entity-information-card,
+.lead-information {
+  a {
+    color: $green-main;
+  }
+  .nav-item {
+    a {
+      color: $darker-grey;
+    }
+  }
+}
+
+.main-content {
+  .headline {
+    font-size: 24px;
+    font-family: $font-family-bold;
+    padding: 15px 0px;
+  }
+}
+.warning-modal {
+  .modal-content {
+    padding: 20px 30px;
+    text-align: center;
+  }
+  .icon {
+    margin-bottom: 10px;
+    i {
+      font-size: 70px;
+      color: $vivid-orange;
+    }
+  }
+  .headline {
+    font-family: $font-family-medium;
+  }
+  .warning-message {
+    margin: 20px auto;
+  }
+}
+.notification-modal {
+  .modal-content {
+    padding: 20px 50px;
+    text-align: center;
+}
+.icon {
+  margin-bottom: 10px;
+  i {
+    font-size: 60px;
+    color: $green-main;
+  }
+}
+a {
+  color: $green-main;
+  text-decoration: none;
+  cursor: pointer;
+}
+.receipt {
+
+  i {
+    font-size: 18px;
+    color: $green-main;
+  }
+}
+  .headline {
+    font-family: $font-family-bold;
+  }
+  .notification-message {
+    margin: 20px auto;
+  }
+}
+
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+
+  //FontOverpass
+  .fontOverpass {
+    font-family: 'Overpass', sans-serif;
+  }
+
+  // override btn style
+  .btn {
+    border-radius:  20px 20px 20px 0px;
+    &.btn-light {
+      background-color: $sundhedplus-lighter-grey;
+      border-color: $sundhedplus-light-grey;
+      color: $darker-grey;
+  
+      @include hover-focus-active {
+        background-color: $sundhedplus-light-grey;
+      }
+    }
+    &.btn-blue {
+      background-color: $sundhedplus-red-main;
+      color: $white;
+      @include hover-focus-active {
+        background-color: darken($sundhedplus-red-main, 5);
+      }
+    }
+  
+    &.btn-outline-blue {
+      color: $sundhedplus-red-main;
+      border-color: $sundhedplus-red-main;
+      @include hover-focus-active {
+        background-color: darken($sundhedplus-red-main, 5);
+        color: $white;
+      }
+    }
+  }
+  
+  // simple logo placeholder
+  .logo {
+    .d-logo {
+      color: $sundhedplus-brawn;
+      background-color: $sundhedplus-lightest-grey;
+      &.active, &.inactive {
+        &:after {
+          background-color: $sundhedplus-red-main;
+        }
+      }
+  
+      &.inactive {
+        &:after {
+          background-color: $sundhedplus-light-grey;
+        }
+      }
+    }
+  }
+  
+  .late-payment {
+    .has-tooltip {
+      color: $sundhedplus-red-main;
+    }
+  }
+  // verified icon
+  .is-verified {
+    color: $sundhedplus-red-main;
+  }
+  
+  //Toast styles
+  //notifiation without link
+  .notification-container {
+    min-width: 340px;
+    min-height: 54px;
+    .notification {
+  
+      &.notification-success {
+        &:before {
+          color: $sundhedplus-red-main;
+          content: $di-approve;
+        }
+        .notification-action-wrapper {
+          .notification-action-button {
+            color: $sundhedplus-red-main;
+          }
+        }
+      }
+    }
+  }
+  
+  //notification system with html embedded
+  .notifications-wrapper {
+    .notifications-tr {
+      .notification {
+        &.notification-success {
+          background-color: $toast-success-background;
+          border: solid 1px $toast-success-border;
+  
+          &:before {
+            color: $sundhedplus-red-main;
+            content: $di-approve;
+          }
+  
+          .notification-dismiss {
+            background-color: $xblue;
+          }
+  
+          .notification-action-wrapper {
+            .notification-action-button {
+              color: $sundhedplus-red-main;
+            }
+          }
+        }
+  
+        &.notification-error {
+          &:before {
+            color: $sundhedplus-red-main;
+            content: $di-decline;
+          }
+  
+          .notification-action-wrapper {
+            .notification-action-button {
+              color: $sundhedplus-red-main;
+            }
+          }
+        }
+      }
+    }
+  }
+  .notification-message {
+    a {
+      color: $sundhedplus-red-main;
+    }
+  }
+
+
+  .pagination {
+    .page-link {
+      color: $sundhedplus-red-main;
+    }
+  
+    .page-item.active .page-link {
+      background-color: $sundhedplus-red-main;
+      border-color: $sundhedplus-red-main;
+      outline: none !important;
+    }
+  }
+  a.denti-link {
+    @include plain-all {
+      text-decoration: none;
+      color: $sundhedplus-red-main;
+    }
+  }
+  img.brandLogo {
+    width: auto;
+    height: auto;
+  }
+
+  .main-wrapper {
+    aside {
+      .subnav {
+        menu {
+          li {
+            &.default {
+              background-color: $sundhedplus-light-red-main;
+              border: 1px solid $lighter-grey;
+            }
+            &.active {
+              border: 1px solid $sundhedplus-red-main;
+            }
+          }
+        }
+      }
+    }
+  }
+
+    .entity-information-card,
+    .lead-information {
+      a {
+        color: $sundhedplus-red-main;
+      }
+      .nav-item {
+        a {
+          color: $darker-grey;
+        }
+      }
+    }
+    &.notification-modal {
+    .icon {
+      i {
+        color: $sundhedplus-red-main;
+      }
+    }
+    a {
+      color: $sundhedplus-red-main;
+    }
+    }
+}

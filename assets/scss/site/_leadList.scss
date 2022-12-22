@@ -1,0 +1,1065 @@
+.entities-list-section {
+  // border-right: 1px solid rgba($black, 0.125);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100vh;
+  @media only screen and (max-width: 1200px) {
+    max-width: 100%;
+  }
+  @include media-breakpoint-up(xl) {
+    box-shadow: 2px 0px 5px 0 rgba(0, 0, 0, 0.1);
+    z-index: 30;
+  }
+
+  .header {
+    // background-color: $lightest-grey;
+    // border-bottom: 1px solid $light-grey;
+    padding: 19px 0 26px 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: none;
+    height: auto;
+
+    .search-form {
+      width: 70% !important;
+      position: relative;
+      @media only screen and (max-width: 600px) {
+        width: 85% !important;
+      }
+
+      .btn-search,
+      .btn-clear-search {
+        position: absolute;
+        top: 10px;
+        right: 13px;
+        z-index: 1;
+        color: $dark-grey;
+        cursor: pointer;
+        @include font-style(16px, 400, 1);
+        background-color: transparent;
+        border: 0;
+
+        @include hover-focus-active {
+          outline: none;
+        }
+        .lnir {
+          font-size: 20px;
+          color: $grey;
+          margin-top: -2px;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        width: 60%;
+      }
+
+      .form-group {
+        position: relative;
+      }
+
+      .search-query {
+        min-height: 38px;
+        border-radius: 30px;
+        position: relative;
+        border-color: $light-grey;
+        padding: {
+          left: 20px;
+          right: 30px;
+        }
+        color: $green-main;
+
+        &:-ms-input-placeholder {
+          color: $dark-grey !important; /* IE11 needs the !important flag */
+        }
+
+        @include focus() {
+          box-shadow: inset 0 0 4px 4px $lighter-grey;
+          border-color: $green-main;
+        }
+      }
+    }
+
+    .title {
+      margin-bottom: 1.5rem;
+      color: $darkest-grey;
+      display: flex;
+      align-items: center;
+      @include font-style(32px, 700, 42px);
+      font-family: "Maven Pro Bold";
+
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    // notification badge
+    .requires-action-badge {
+      @include font-style(12px, 500, 18px);
+      margin-left: 5px;
+      background-color: $badge-color;
+      cursor: pointer;
+      // vertical-align: text-top;
+
+      .di {
+        // vertical-align: inherit;
+        margin-left: 3px;
+      }
+    }
+
+    .menu-toggler {
+      outline: none;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      // z-index: 20;
+
+      @include media-breakpoint-up(md) {
+        top: 1.5rem;
+        left: 1.5rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        top: 1rem;
+        left: 2rem;
+      }
+    }
+  }
+
+  .entities-list-group {
+    overflow: auto;
+    min-height: 1px;
+    height: calc(100% - 130px);
+    padding-right: 6px;
+
+    .list-group-item {
+      background-color: $white;
+      border-radius: 0;
+      border-color: $light-grey;
+      border-left: 0;
+      border-right: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      overflow-y: visible;
+      cursor: pointer;
+      z-index: auto;
+      position: relative;
+      border: none;
+      padding: 5px 8px 5px 23px;
+      &:hover {
+        & .badge {
+          background-color: $white;
+        }
+      }
+
+      .d-logo {
+        width: 44px;
+        height: 44px;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        & > .di-denti {
+          position: relative;
+          top: -1px;
+        }
+
+        & > .di-sundhedplus {
+          position: relative;
+          top: 1px;
+        }
+
+        &.logo-green {
+          background-color: $logo-green;
+        }
+
+        &.logo-yellow {
+          background-color: $logo-yellow;
+        }
+
+        &.logo-red {
+          background-color: $logo-red;
+        }
+
+        &.logo-grey {
+          background-color: $logo-grey;
+        }
+      }
+
+      .list-group-item-heading {
+        @include font-style(14px, 500, 14px);
+        font-family: "Maven Pro Medium";
+        color: $darkest-grey;
+        font-size: 16px;
+
+        span {
+          display: inline-block;
+
+          &.refNumber {
+            font-weight: 400;
+          }
+        }
+      }
+
+      .list-group-item-text {
+        @include font-style(12px, 400, 16px);
+        color: $dark-grey;
+        margin-top: 5px;
+      }
+
+      .time-created,
+      .info-location {
+        @include font-style(14px, 400, 18px);
+        color: $dark-grey;
+
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+
+        @include media-breakpoint-up(md) {
+          flex-direction: row;
+        }
+
+        @include media-breakpoint-only(xl) {
+          flex-direction: column;
+        }
+
+        @include media-breakpoint-up(wd) {
+          flex-direction: row;
+        }
+
+        // label badge
+        .requires-action-badge {
+          background-color: $badge-color;
+          color: $white;
+          padding-top: 4px;
+          margin-bottom: 5px;
+          @include font-style(10px, 700, 10px);
+          min-width: 100px;
+
+          @include media-breakpoint-up(md) {
+            min-width: 120px;
+            margin-bottom: 0;
+          }
+
+          @include media-breakpoint-only(xl) {
+            margin-bottom: 5px;
+          }
+
+          .di {
+            margin-left: 2px;
+            vertical-align: text-top;
+          }
+        }
+
+        & > .text {
+          min-width: 90px;
+          display: inline-block;
+          text-align: right;
+        }
+      }
+
+      .info-location {
+        text-align: right;
+      }
+
+      .single-list-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // padding: 4px 0;
+        width: 100%;
+        padding: 8px 20px;
+        border-bottom: 4px solid #f9f9f9;
+        border-radius: 8px;
+        padding: 18px 20px;
+        // @include media-breakpoint-up(md) {
+        //   // padding: 8px 0;
+        // }
+        &:hover {
+          background-color: $grey-hover;
+          border-bottom-color: #ededed;
+        }
+
+        &.active {
+          background-color: $grey-hover;
+          border-bottom-color: #ededed;
+          & .badge {
+            background-color: $white;
+          }
+          &:hover {
+            background-color: $grey-hover;
+            border-bottom-color: #ededed;
+            & .badge {
+              background-color: $white;
+            }
+          }
+        }
+
+        .d-logo {
+          .di-tooth {
+            vertical-align: -2px;
+          }
+        }
+
+        .client-data {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 32px;
+
+          .needs-signature {
+            color: $orange-main;
+          }
+        }
+
+        .badge {
+          margin-left: auto;
+          background-color: $lightest-grey;
+          color: $darker-grey;
+          @include font-style(12px, 400, 18px);
+          // min-width: 135px;
+          border-radius: 20px;
+          padding: 9px 17px;
+
+          .di {
+            vertical-align: -1px;
+          }
+        }
+      }
+
+      .late-payment {
+        cursor: pointer;
+      }
+
+      &.read {
+        background-color: $white;
+
+        &:hover {
+          // background-color: $grey-hover;
+
+          & .badge {
+            background-color: $white;
+          }
+        }
+
+        .list-group-item-heading {
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+
+      &.active {
+        border-color: $light-grey;
+        & .badge {
+          background-color: $white;
+        }
+        &:hover {
+          & .badge {
+            background-color: $white;
+          }
+        }
+
+        .list-group-item-heading {
+          color: $darkest-grey;
+          font-weight: 500;
+          font-size: 16px;
+        }
+
+        .list-group-item-text {
+          color: $darkest-grey;
+        }
+
+        .time-created,
+        .info-location {
+          color: $darkest-grey;
+        }
+
+        .is-verified {
+          color: $darkest-grey;
+        }
+
+        .requires-action-badge {
+          background-color: $white;
+          color: $badge-color;
+        }
+
+        .late-payment {
+          .has-tooltip {
+            color: $white;
+          }
+        }
+        .badge {
+          background-color: $white;
+        }
+      }
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+
+    .scrollbar-wrapper {
+      background-color: $white;
+      min-height: 100%;
+      border-style: solid;
+      // border-color: $light-grey;
+      // border-width: 0 1px 1px 0;
+      border: none;
+
+      @include media-breakpoint-up(xl) {
+        margin-right: 20px;
+      }
+    }
+
+    .pagination {
+      // background-color: $lightest-grey;
+
+      .page-item {
+        @include font-style(15px, 400, 15px);
+
+        .page-link {
+          color: $darkest-grey;
+        }
+
+        &.active {
+          .page-link {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .company-list-group {
+    .list-group-item {
+      background-color: $white;
+      border: none;
+      // &:hover {
+      //   background-color: $grey-hover;
+      // }
+      & .company-details {
+        // width: auto;
+
+        .list-group-item-heading {
+          @include font-style(14px, 500, 18px);
+          font-size: 16px;
+          .refNumber {
+            color: $darker-grey;
+          }
+        }
+
+        .list-group-item-text {
+          @include font-style(12px, 400, 18px);
+          color: $dark-grey;
+        }
+
+        .d-logo {
+          color: $white;
+        }
+      }
+
+      .info-location {
+        color: $darker-grey;
+      }
+
+      &.active {
+        border-bottom-color: #ededed;
+        & .badge {
+          background-color: $white;
+        }
+        &:hover {
+          border-bottom-color: #ededed;
+          & .badge {
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .scrollbar-pseudo-rail {
+    height: 100%;
+    display: block;
+    margin-right: 20px;
+    border-right: 1px solid $light-grey;
+  }
+
+  .emptyMessage,
+  .errorMessage {
+    background-color: $white;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: $dark-grey;
+    padding: 20px 10%;
+    @include font-style(18px, 400, 24px);
+
+    @include media-breakpoint-up(md) {
+      padding: 20px 20%;
+    }
+  }
+
+  .emptyMessage {
+    .subtitle {
+      font-size: 15px;
+      line-height: 21px;
+
+      .first-word {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .empty-results-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    .emptyMessage {
+      padding: 20px 20% 0 20%;
+    }
+  }
+
+  .filter-reset {
+    background-color: $filter-reset;
+    padding: 0.75rem 1rem;
+    @include font-style(14px, 400, 1.25);
+
+    .reset-view {
+      margin-left: 5px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: $filter-link;
+
+      @include hover {
+        text-decoration: underline;
+      }
+
+      @include hover-focus {
+        outline: none;
+      }
+    }
+  }
+
+  .filter-container {
+    position: relative;
+    //min-height: 40px;
+    background-color: $lightest-grey;
+    // border-bottom: 1px solid $light-grey;
+    display: flex;
+    align-content: center;
+    flex-flow: row nowrap;
+    padding: 4px;
+    border-radius: 20px;
+    margin: 0 22px 21px 22px;
+
+    .btn-filter {
+      padding: 0.25rem 1rem;
+      color: $black;
+      background-color: $lightest-grey;
+      height: 30px;
+      font-size: 14px;
+      border: 0;
+      // vertical-align: middle;
+      border-radius: 14.5px;
+
+      & .di-controls {
+        font-size: 16px;
+        color: $darker-grey;
+      }
+
+      span {
+        vertical-align: text-top;
+      }
+    }
+
+    .active-filters-container {
+      overflow: hidden;
+    }
+    .active-filters {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 5px;
+    }
+
+    .badge-filter {
+      background-color: $green-main;
+      padding: 0.5rem 1rem;
+      height: 30px;
+      border-radius: 14.5px;
+      color: $white;
+      font-size: 11px;
+      font-weight: 400;
+      margin-left: 7px;
+      
+      vertical-align: middle;
+
+      .di-close {
+        font-size: 8px;
+        margin-right: 0.75rem;
+        cursor: pointer;
+      }
+
+      & > span {
+        vertical-align: middle;
+      }
+    }
+
+    .filter-content {
+      padding: 66px 22px 22px 22px;
+      position: fixed;
+      background-color: $white;
+      z-index: 29;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      max-height: 70vh;
+      overflow: auto;
+      @include media-breakpoint-up(xs) {
+        width: 400px;
+        padding: 25px;
+        height: fit-content;
+        left: calc(50% - 200px);
+        overflow: auto;
+        box-shadow: 0px 5px 9.9px 0.1px rgba(102, 102, 102, 0.39);
+      }
+      @include media-breakpoint-up(xs) {
+        width: 100%;
+        left: 0;
+      }
+      
+      @include media-breakpoint-up(md) {
+        padding: 25px;
+        position: absolute;
+        box-shadow: 0px 5px 9.9px 0.1px rgba(102, 102, 102, 0.39);
+        width: 320px;
+        top: 40px;
+        left: 15px;
+        height: auto;
+      }
+
+      .filter-title {
+        margin-bottom: 1rem;
+        line-height: 1;
+      }
+
+      & > form {
+        @include media-breakpoint-down(md) {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      & > .row:last-child {
+        @include media-breakpoint-down(md) {
+          margin-top: auto;
+        }
+      }
+
+      .form-row {
+        margin: {
+          left: -10px;
+          right: -10px;
+        }
+        & > .col,
+        & > [class*="col-"] {
+          padding: {
+            left: 10px;
+            right: 10px;
+          }
+        }
+      }
+
+      .loan-status-filter,
+      .patient-status-filter,
+      .company-status-filter,
+      .credit-status-filter,
+      .brand-status-filter,
+      .smartLink-status-filter {
+        padding-left: 20px;
+        margin-bottom: 5px;
+
+        .custom-control-input {
+          &:checked ~ .custom-control-label::before {
+            border-color: $green-main;
+            background-color: $green-main;
+          }
+        }
+
+        .custom-control-label {
+          font-size: 14px;
+          vertical-align: inherit;
+          padding-left: 20px;
+          color: $darker-grey;
+
+          &:before {
+            border-radius: 0;
+          }
+          &:before,
+          &:after {
+            left: -15px;
+            top: 2px;
+          }
+        }
+      }
+
+      &.opened {
+        display: block;
+      }
+
+      input {
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .clinicsarchAddress {
+        color: $darker-grey;
+        font-size: 12px;
+      }
+      .clinic-search {
+        position: relative;
+        & .clinic-search-input {
+          border-radius: 17px;
+          border-color: $filter-border;
+          font-size: 14px;
+        }
+
+        .lnir-search-alt {
+          position: absolute;
+          right: 12px;
+          top: 25%;
+        }
+
+        .no-suggestions,
+        .suggestions {
+          box-shadow: 0 0 8.9px 0.1px rgba(102, 102, 102, 0.33);
+          .list-group-item {
+            display: flex;
+            padding: 20px 20px 20px 0 !important;
+            border: none;
+            .sugestion_refrenceid {
+              width: 70px;
+              min-width: 70px;
+              text-align: center;
+            }
+            .clinic_search_address {
+              color: $dark-grey;
+              font-size: 12px;
+            }
+          }
+          &.list-group {
+            position: absolute;
+            width: 100%;
+            z-index: 200;
+            max-height: 250px;
+            overflow-y: scroll;
+          }
+
+          .list-group-item {
+            padding: 0.5rem 1rem;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            &:hover {
+              background-color: $lightest-grey;
+              border-bottom-color: #ededed;
+            }
+          }
+        }
+      }
+
+      .date-input {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        input[type="date"] {
+          position: relative;
+          padding: 0.35rem 0.25rem 0.25rem 0.5rem;
+          color: $darker-grey;
+          font-size: 13px;
+
+          &::placeholder {
+            color: $filter-border;
+          }
+
+          // &::-webkit-datetime-edit,
+          &::-webkit-clear-button,
+          &::-webkit-inner-spin-button {
+            display: none;
+          }
+
+          &::-webkit-calendar-picker-indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: auto;
+            color: transparent;
+            background: transparent;
+          }
+
+          &:after {
+            font-family: "denti-icon";
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: unicode($di-calendar);
+            color: $filter-border;
+            padding-right: 4px;
+          }
+          // &::-webkit-calendar-picker-indicator {
+          //   position: absolute;
+          //   top: 10px;
+          //   right: 5px;
+          //   color: $dark;
+          //   opacity: 1;
+          // }
+
+          // &:before {
+          //   position: absolute;
+          //   top: 6px; left: 6px;
+          //   content: attr(data-date);
+          //   display: inline-block;
+          //   color: $dark;
+          // }
+
+          &.dash-line {
+            &:before {
+              position: absolute;
+              content: "-";
+              left: -14px;
+            }
+          }
+        }
+      }
+
+      .menu-toggler {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+
+        @include media-breakpoint-up(md) {
+          display: none;
+        }
+        @media only screen and (max-width: 600px) {
+          min-width: auto;
+          top: 10px;
+          right: 10px;
+        }
+      }
+    }
+  }
+  // .filter-container.companies {
+  //   justify-content: space-between;
+  // }
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .entities-list-section {
+    .header {
+      .search-form {
+        .btn-search,
+        .btn-clear-search {
+          top: 5px;
+          margin-top: 5px;
+        }
+        .lnir {
+          color: $sundhedplus-grayish-orange;
+        }
+        .search-query {
+          border-color: $sundhedplus-light-grayish-red;
+          color: $sundhedplus-darkest-grey;
+          @include focus() {
+            box-shadow: inset 0 0 4px 4px $sundhedplus-lighter-grey;
+            border-color: $sundhedplus-grayish-orange;
+          }
+        }
+      }
+
+      .title {
+        color: $sundhedplus-darkest-grey;
+      }
+    }
+
+    .entities-list-group {
+      .list-group-item {
+        border-color: $sundhedplus-light-grey;
+
+        .d-logo {
+          &.logo-green {
+            color: $white;
+            background-color: $sundhedplus-logo-green;
+          }
+          &.logo-yellow {
+            color: $white;
+            background-color: $sundhedplus-logo-yellow;
+          }
+          &.logo-red {
+            color: $white;
+            background-color: $sundhedplus-logo-red;
+          }
+          &.logo-grey {
+            color: $white;
+            background-color: $sundhedplus-logo-grey;
+          }
+        }
+        .time-created,
+        .info-location {
+          // label badge
+          .requires-action-badge {
+            background-color: $sundhedplus-badge-color;
+          }
+        }
+        .single-list-item {
+          padding: 18px 20px;
+          border-bottom: 4px solid $sundhedplus-lightest-grey;
+          &:hover {
+            background-color: $sundhedplus-lightest-grey;
+            border-bottom-color: $sundhedplus-lighter-grayish-orange;
+          }
+
+          &.active {
+            background-color: $sundhedplus-red-secudary;
+            border-bottom-color: $sundhedplus-lighter-grayish-orange;
+            &:hover {
+              background-color: $sundhedplus-lightest-grey;
+              border-bottom-color: $sundhedplus-lighter-grayish-orange;
+            }
+          }
+          @include media-breakpoint-up(md) {
+            padding: 18px 20px 18px 17px;
+          }
+
+          .client-data {
+            .needs-signature {
+              color: $sundhedplus-orange-main;
+            }
+          }
+
+          .badge {
+            margin-left: auto;
+            background-color: $sundhedplus-lightest-grey;
+          }
+        }
+
+        &.active {
+          border-color: $sundhedplus-light-grey;
+          .list-group-item-heading {
+            color: $sundhedplus-darkest-grey;
+          }
+
+          .list-group-item-text {
+            color: $sundhedplus-darkest-grey;
+          }
+
+          .time-created,
+          .info-location {
+            color: $sundhedplus-darkest-grey;
+          }
+
+          .is-verified {
+            color: $sundhedplus-darkest-grey;
+          }
+
+          .requires-action-badge {
+            color: $sundhedplus-badge-color;
+          }
+        }
+      }
+      .pagination {
+        .page-item {
+          @include font-style(15px, 400, 15px);
+
+          .page-link {
+            color: $darkest-grey;
+          }
+          &.active {
+            .page-link {
+              background-color: $sundhedplus-light-grey;
+              border-color: $sundhedplus-light-grey;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    .company-list-group {
+      .list-group-item {
+        & .company-details {
+          .list-group-item-heading {
+            color: $darker-grey;
+            .refNumber {
+              color: $darker-grey;
+            }
+          }
+        }
+        &.active {
+          border-bottom-color: $sundhedplus-lighter-grayish-orange;
+          &:hover {
+            border-bottom-color: $sundhedplus-lighter-grayish-orange;
+          }
+        }
+      }
+    }
+
+    .scrollbar-pseudo-rail {
+      border-right: 1px solid $sundhedplus-light-grey;
+    }
+
+    .filter-container {
+      background-color: $sundhedplus-lightest-grey;
+      .btn-filter {
+        background-color: $sundhedplus-lightest-grey;
+      }
+      .badge-filter {
+        background-color: $sundhedplus-red-main;
+      }
+      .filter-content {
+        .loan-status-filter,
+        .patient-status-filter,
+        .company-status-filter,
+        .credit-status-filter,
+        .brand-status-filter,
+        .smartLink-status-filter {
+          .custom-control-input {
+            &:checked ~ .custom-control-label::before {
+              border-color: $sundhedplus-red-main;
+              background-color: $sundhedplus-red-main;
+            }
+          }
+        }
+        .clinic-search {
+          .no-suggestions,
+          .suggestions {
+            .list-group-item {
+              &:hover {
+                background-color: $sundhedplus-lightest-grey;
+                border-bottom-color: #ededed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

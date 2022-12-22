@@ -1,0 +1,387 @@
+/* LOGIN */
+.user-login {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("#{$images-path}/blur-bristle-brush-298611.png") no-repeat
+    center center fixed;
+  background-size: cover;
+
+  @include media-breakpoint-only(sm) {
+    padding: 20px 0;
+  }
+
+  .form-wrapper {
+    z-index: 100;
+    background-color: $dark;
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    box-shadow: 0 0 20px 0 rgba($black, 0.2), 0 5px 5px 0 rgba($black, 0.24);
+
+    @include media-breakpoint-up(sm) {
+      max-width: 500px;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding: 40px;
+      max-width: 500px;
+    }
+
+    .logo {
+      color: $white;
+      text-align: center;
+      font-size: 45px;
+      margin-bottom: 10%;
+    }
+
+    #loginForm{
+      border-radius: 3px;
+      position: relative;
+      z-index: 1;
+      background: $form-black;
+      width: 100%;
+      padding: 30px 40px;    
+      margin: 0 auto 20px;
+
+      
+      text-align: center;
+
+      button {
+        margin-top: 0 !important;
+      }
+      input:disabled {
+        background-color: $light-grey;
+      }
+    }
+
+
+
+    #loginForm,
+    #forgotPasswordForm,
+    #resetPassword {
+      border-radius: 3px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin: 0 auto 20px;
+      text-align: center;
+      .resetPasswordValidation{
+        max-width: 420px;
+        width: 100%;
+        padding: 0;
+        margin: auto;
+      }
+      .col-sm-6 {
+        padding: 0;
+        text-align: left;
+        font-size: 15px;
+      }
+      .valid {
+        color: $sundhedplus-status-green;
+      }
+      .invalid {
+        color: $white;
+        &.valid {
+          color: $sundhedplus-status-green;
+        }
+      }
+      .row {
+        margin-bottom: 10px;
+
+        @media only screen and (max-width: 500px) {
+          margin-bottom: 0px;
+          .col-sm-6 {
+            padding-left: 7px;
+          }
+        }
+        i {
+          margin: 0 8px;
+        }
+      }
+
+      div.form-group {
+        position: relative;
+
+        &:first-of-type {
+          margin: 10px 0;
+        }
+
+        input.form-group.active {
+          border: 2px solid $green-main;
+          color: $green-main;
+        }
+      }
+
+      input {
+        border-radius: 20px;
+        outline: 0;
+        border: 2px solid $logo-color;
+        width: 100%;
+        margin: 0 0 20px;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        min-height: 44px;
+        font-size: 12px;
+        font-weight: 400;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 0.83;
+        letter-spacing: 0.4px;
+        color: $dark-grey;
+        background-color: $white;
+        padding-left: 50px;
+
+        &::placeholder {
+          color: $dark-grey; 
+        }
+      }
+
+      label {
+        display: none;
+      }
+
+      span.di {
+        position: absolute;
+        top: 11px;
+        left: 20px;
+        z-index: 1;
+        color: $dark-grey;
+        cursor: pointer;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      button {
+        margin-top: 40px;
+        margin-bottom: 5px;
+        padding: 12px 10px;
+        outline: none;
+        border: 0;
+        border-radius: 20px;
+        text-transform: capitalize;
+        cursor: pointer;
+        color: $white;
+        background-color: $green-main;
+        border-color: $green-main;
+        min-height: 44px;
+
+        @include font-style(14px, 700, 0.71);
+        font-stretch: normal;
+        letter-spacing: 0.4px;
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+          min-width: 200px;
+          max-width: 200px;
+        }
+       
+      }
+
+      img {
+        max-height: 70px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        text-align: left;
+        width: 100%;
+        color: $white;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .text-error {
+        color: $error-color;
+        text-align: left;
+        font-size: 16px;
+        line-height: 20px;
+        position: absolute;
+        bottom: -4px;
+      }
+
+      .login-button {
+        text-decoration: none;
+        padding: 12px 10px;
+        cursor: pointer;
+        outline: none;
+        background-color: $green-main;
+        border-color: $green-main;
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: 1px;
+        display: inline-block;
+        min-width: 200px;
+        font-family: "Maven Pro Bold";
+      }
+
+      .login-error-message {
+        color: $error-color;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      .login-newlink-message {
+        color: $sundhedplus-logo-green;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+
+    .forgot-password {
+      font-family: "Maven Pro Bold";
+      width: 100%;
+      color: $white;
+      font-size: 14px;
+      float: left;
+      text-decoration: underline;
+      text-align: center;
+      margin-bottom: 10px;
+
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.14;
+      letter-spacing: normal;
+
+      &.green {
+        color: $white;
+        text-align: center;
+        padding: 20px;
+        text-decoration: none;
+      }
+
+      &.red {
+        color: $error-color;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+      }
+
+      &.headline {
+        text-align: center;
+        padding: 20px 10px 0 10px;
+        margin-bottom: 12px;
+        text-decoration: none;
+      }
+    }
+
+    .login-bottom {
+      text-align: center;
+      min-height: 84px;
+
+      .help {
+        color: $white;
+
+        p {
+          margin: 0;
+        }
+
+        .login-help-text {
+          font-size: 12px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 2;
+          letter-spacing: normal;
+        }
+
+        .login-help-number {
+          font-size: 24px;
+          font-family: "Maven Pro Bold";
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+.forgot-password.user-login {
+  .form-wrapper {
+    .login-bottom {
+      min-height: 50px;
+    }
+
+    #forgotPasswordForm {
+      margin-bottom: 0;
+
+      button {
+        outline: none;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.user-login.reset-password {
+  .form-wrapper {
+    .reset-headline {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      margin-bottom: 5%;
+    }
+
+    .login-bottom {
+      min-height: 55px;
+    }
+    form#resetPassword {
+      &.success,
+      &.error {
+        background: none;
+      }
+      .text-error {
+        position: relative;
+        bottom: 0;
+      }
+      div.form-group.has-error {
+        input {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  &.user-login {
+    background: none;
+    font-family: "Overpass", sans-serif;
+    background-color: $sundhedplus-login-bg-color;
+
+    .form-wrapper {
+      #loginForm,
+      #forgotPasswordForm,
+      #resetPassword {
+        input {
+          border-radius: 4px;
+          padding: 10px 20px 10px 50px;
+        }
+        div.form-group {
+          input.form-group.active {
+            border: 0;
+            color: $sundhedplus-very-dark-black;
+          }
+        }
+
+        button {
+          border-radius: 20px 20px 20px 0px;
+          background-color: $sundhedplus-red-main;
+          border-color: $sundhedplus-red-main;
+        }
+
+        .login-button {
+          background-color: $sundhedplus-red-main;
+          border-color: $sundhedplus-red-main;
+        }
+      }
+    }
+  }
+}

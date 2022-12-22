@@ -1,0 +1,238 @@
+.modal {
+  &.confirm-action {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  @include media-breakpoint-down(md) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .modal-dialog {
+    &.create-agreement-modal.modal-container,
+    &.confirm-modal.modal-container {
+      
+      margin: 0 auto;
+      width: 100%;
+      max-width: 700px;
+
+      @include media-breakpoint-up(lg) {
+        width: 60%;
+      }
+
+      @include media-breakpoint-up(xl) {
+        width: 60%;
+      }
+
+      .modal-content {
+    
+        margin-bottom: 40px;
+        margin-top: 40px;
+
+        .close {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          z-index: 10000;
+        }
+
+        .modal-header {
+          background-color: $lightest-grey;
+          border: none;
+        }
+
+        .modal-body {
+          background-color: $lightest-grey;
+          padding: 0 15px 30px 15px;
+
+          .create-agreement {
+            width: 90%;
+
+            @include media-breakpoint-up(md) {
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+
+    &.confirm-modal.modal-container {
+      max-width: 500px;
+
+      .modal-content {
+        background-color: $lightest-grey;
+        padding: 40px 40px 30px 40px;
+        border-radius: 0;
+        border: none;
+
+        .modal-body {
+          padding: 0 10px;
+
+          .status-modal {
+            .title {
+              padding-bottom: 20px;
+              @include font-style(18px, 700, 16px);
+              color: $darkest-grey;
+              margin-bottom: 5px;
+              word-wrap: break-word;
+
+              @include media-breakpoint-up(md) {
+                display: inline-block;
+                @include font-style(24px, 700, 20px);
+              }
+
+              @include media-breakpoint-up(wd) {
+                @include font-style(30px, 700, 30px);
+              }
+
+              .refNumber {
+                @include font-style(16px, 400, 14px);
+                color: $dark-grey;
+
+                @include media-breakpoint-up(md) {
+                  @include font-style(18px, 400, 20px);
+                }
+
+                @include media-breakpoint-up(wd) {
+                  @include font-style(26px, 400, 26px);
+                }
+              }
+
+              .late-payment {
+                cursor: default;
+                display: inline-block;
+
+                .has-tooltip {
+                  @include font-style(18px, 700, 16px);
+
+                  @include media-breakpoint-up(md) {
+                    @include font-style(24px, 700, 20px);
+                  }
+
+                  @include media-breakpoint-up(wd) {
+                    @include font-style(36px, 700, 30px);
+                  }
+                }
+              }
+            }
+
+            .confirm-message {
+              padding-bottom: 10px;
+              margin-bottom: 0;
+            }
+
+            .bottom-section {
+              text-align: center;
+
+              button {
+                min-width: 145px;
+                align-items: center;
+                display: inline-flex;
+
+                &.submit-btn {
+                  margin-right: 20px;
+
+                  @include media-breakpoint-down(xs) {
+                    margin-bottom: 20px;
+                    margin-right: 0;
+                  }
+                }
+                span {
+                  padding: 0 20px;
+                }
+              }
+            }
+          }
+        }
+
+        .close {
+          .di-close {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    &.export-modal {
+      &.title {
+        font-size: 30px;
+        font-weight: bold;
+        color: $black;
+      }
+
+      &.confirm-message {
+        font-size: 16px;
+        line-height: 24px;
+        color: $black;
+      }
+    }
+  }
+    .new-invoice-Modal {
+      min-width: 620px;
+  
+      @media only screen and (max-width: 600px) {
+        min-width: auto;
+      }
+      @media only screen and (min-width: 768px) {
+        .close {
+          display: none;
+        }
+      }
+    }
+  
+    .grant-access-Modal {
+      min-width: 640px;
+  
+      @media only screen and (max-width: 600px) {
+        min-width: auto;
+      }
+    }
+
+  &.server-error {
+    .card {
+      border: none;
+    }
+  }
+
+  .server-error-modal {
+    min-width: 620px;
+    padding-bottom: 10px;
+    .card-body {
+      padding-bottom: 0;
+    }
+  }
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .modal {
+    .modal-dialog {
+      &.create-agreement-modal.modal-container,
+      &.confirm-modal.modal-container {
+        .modal-content {
+          .modal-header {
+            background-color: $sundhedplus-lightest-grey;
+          }
+          .modal-body {
+            background-color: $sundhedplus-lightest-grey;
+          }
+        }
+      }
+  
+      &.confirm-modal.modal-container {
+        max-width: 500px;
+        .modal-content {
+          background-color: $sundhedplus-lightest-grey;
+          padding: 40px 40px 30px 40px;
+          border-radius: 0;
+          border: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.debt-loans {
+  padding: 20px;
+  max-height: 969px;
+  overflow: auto;
+
+  .loans-grid {
+    .loan-grid-container {
+      .loan-header-cell {
+        font-weight: 600;
+      }
+      .loan-cell {
+        a {
+          color: #444444;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+// css grids for modern browsers
+@supports(grid-area: auto) {
+  .loans-grid {
+    .loan-grid-container, .loan-form {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
+
+      .loan-cell {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.header-information {
+  .card-title {
+    font-size: 18px;
+    font-family: "Maven Pro Bold";
+    line-height: 100%;
+    margin-bottom: 0;
+  }
+}
+}

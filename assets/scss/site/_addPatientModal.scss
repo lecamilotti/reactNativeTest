@@ -1,0 +1,597 @@
+.add-patient-modal {
+  &.modal-dialog {
+    @include media-breakpoint-up(md) {
+      min-width: 620px;
+    }
+  }
+  .modal-content,
+  .modal-body {
+    position: initial;
+  }
+
+  .modal-body {
+    padding: 0;
+    .card {
+      border: 0;
+      position: initial;
+      .card-body {
+        @include media-breakpoint-up(lg) {
+          padding: 40px 40px 50px 40px;
+        }
+      }
+
+      .logo-red {
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+        background-color: $white;
+        border: 5px solid $logo-red;
+        border-radius: 50%;
+        position: absolute;
+        top: -35px;
+        left: 42%;
+        z-index: 1060;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i.di-cancel {
+          font-size: 35px;
+          color: $logo-red;
+        }
+        @include media-breakpoint-down(md) {
+          top: -30px;
+        }
+        @media (min-width: 992px) and (max-width: 1200px) {
+          top: -10px;
+        }
+        @include media-breakpoint-up(wd) {
+          top: 50px;
+        }
+      }
+    }
+  }
+
+
+
+  .step-content {
+    color: $select-title-color;
+
+    .step-header {
+      text-align: center;
+      color: $black;
+      margin-bottom: 35px;
+
+      .title-text {
+        font-size: 24px;
+
+        @include media-breakpoint-up(md) {
+          font-size: 32px;
+        }
+        line-height: 1;
+        font-family: "Maven Pro Bold";
+        margin-top: 20px;
+      }
+
+      .di-add-user {
+        font-size: 40px;
+
+        @include media-breakpoint-up(md) {
+          font-size: 60px;
+        }
+      }
+    }
+
+    .step-body {
+      .select-options {
+        .select-item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: 14px;
+          border-radius: 20px;
+          border: 1px solid $select-border-color;
+          cursor: pointer;
+
+          @include media-breakpoint-up(md) {
+            padding: 20px 30px;
+          }
+
+          &:hover {
+            background-color: $lightest-grey;
+          }
+
+          &:first-child {
+            border: 1px solid $select-border-color;
+          }
+
+          .di {
+            font-size: 45px;
+            color: $green-main;
+            margin-right: 30px;
+          }
+
+          h5 {
+            font-size: 18px;
+            line-height: 1;
+            color: $select-title-color;
+            margin-bottom: 12px;
+            font-family: "Maven Pro Medium";
+          }
+
+          p {
+            margin-bottom: 0;
+            font-size: 14px;
+            line-height: 20px;
+            color: $select-text-color;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .input-container {
+        background-color: $lightest-grey;
+        border-radius: 4px;
+        text-align: center;
+        padding: 15px 20px;
+
+        .clinic-search {
+          position: relative;
+          width: 100%;
+          i {
+            position: absolute;
+            right: 3%;
+            top: 25%;
+            font-size: 30px;
+            color: $grey;
+          }
+          .no-suggestions,
+          .suggestions {
+            &.list-group {
+              position: absolute;
+              width: 100%;
+              z-index: 200;
+              max-height: 250px;
+              overflow-y: scroll;
+              top: 94px;
+            }
+
+            .list-group-item {
+              padding: 20px;
+              font-size: 16px;
+              color: $black;
+              cursor: pointer;
+
+              &:hover {
+                background-color: $lightest-grey;
+              }
+            }
+          }
+        }
+        #clinicSearch {
+          &.form-control {
+            border-radius: 4px;
+            border-color: $light-grey;
+            font-size: 24px;
+            height: 62px;
+            color: $darkest-grey;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-right: 60px;
+            font-family: $font-family;
+            letter-spacing: initial;
+          }
+        }
+
+        .DropDown_Component {
+          width: 100%;
+         .drop_area .second_column {
+           text-align: left;
+         }
+        }
+        @include media-breakpoint-up(md) {
+          padding: 25px 40px;
+        }
+        > .form-group {
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          // align-items: center;
+
+          &:last-child {
+            margin-bottom: 0;
+            align-items: center;
+          }
+
+          label {
+            font-size: 16px;
+            color: $darker-grey;
+            margin-bottom: 10px;
+          }
+
+          .form-control {
+            font-size: 31px;
+            padding: 10px 0px 10px 22px;
+            border-radius: 4px;
+            border-color: $light-grey;
+            display: block;
+            letter-spacing: 21px;
+
+            &:focus {
+              box-shadow: none;
+            }
+
+            &#patientLetters {
+              width: 110px;
+            }
+          }
+        }
+      }
+    }
+
+    .text-information {
+      font-size: 16px;
+      color: $black;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+
+      p {
+        line-height: 24px;
+      }
+
+      .btn-app-link {
+        font-size: 16px;
+        padding: 0;
+        color: $green-main;
+
+        @include plain-all {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .button-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+
+      .btn {
+        font-size: 14px;
+      }
+
+      .btn-add-patient {
+        width: 230px;
+      }
+      .icon {
+        margin-right: 15px;
+        font-size: 18px;
+      }
+    }
+
+    .text-message {
+      margin-top: 20px;
+    }
+
+    &.step-final {
+      .step-header {
+        margin-bottom: 20px;
+
+        .title-text {
+          margin-top: 30px;
+        }
+      }
+
+      .image-status {
+        height: 222px;
+        width: auto;
+        margin-bottom: 30px;
+
+        @include media-breakpoint-up(md) {
+          height: 312px;
+        }
+      }
+
+      .text-information {
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 50px;
+
+        p {
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .button-actions {
+        .btn {
+          min-width: 105px;
+        }
+      }
+    }
+
+    .clinic-search {
+      position: relative;
+      margin-bottom: 0;
+      .list-group-item {
+        display: flex;
+        padding: 10px !important;
+        border-top-color: $lightest-grey;
+        border-bottom-color: $lightest-grey;
+
+        .sugestion_refrenceid {
+          width: 70px;
+          min-width: 70px;
+          text-align: center;
+          margin-right: 10px;
+        }
+      }
+      .clinic_search_address {
+        color: $dark-grey;
+        font-size: 12px;
+      }
+      & .clinic-search-input {
+        border-radius: 4px;
+        border-color: $light-grey;
+        font-size: 24px;
+        color: $darkest-grey;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 60px;
+        &:focus {
+          border-color: $green-main;
+        }
+      }
+
+      .lnir-search-alt {
+        position: absolute;
+        right: 4%;
+        top: 52%;
+        font-size: 30px;
+        color: $grey;
+      }
+
+      .no-suggestions,
+      .suggestions {
+        &.list-group {
+          position: absolute;
+          width: 100%;
+          z-index: 200;
+          max-height: 250px;
+          overflow-y: scroll;
+          top: 94px;
+        }
+
+        .list-group-item {
+          padding: 20px;
+          font-size: 16px;
+          color: $black;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $lightest-grey;
+          }
+        }
+      }
+    }
+
+    &.step-sendapp-link {
+      .step-header {
+        margin-bottom: 25px;
+      }
+
+      .text-information {
+        margin-top: 0;
+        margin-bottom: 45px;
+        font-size: 16px;
+      }
+      .DropDown_Component .Top_area .placeholder {
+        color: $light-grey;
+      }
+
+      .input-send-container {
+        margin-bottom: 30px;
+
+        .form-group {
+          position: relative;
+          text-align: left;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .di {
+            position: absolute;
+            left: 20px;
+            top: 12px;
+            color: $placeholder-icon-color;
+          }
+
+          .form-control {
+            border-radius: 4px;
+            border-color: $light-grey;
+            padding-left: 20px;
+            height: 62px;
+            font-size: 24px;
+            color: $darkest-grey;
+            margin-bottom: 30px;
+
+            &::placeholder {
+              color: $light-grey;
+            }
+
+            &:focus {
+              box-shadow: none;
+              border-color: $green-main;
+            }
+          }
+
+
+        }
+
+        label {
+          color: $darkest-grey;
+          font-size: 16px;
+        }
+      }
+      .button-actions {
+        margin-top: 40px;
+        .btn {
+          min-width: 186px;
+          position: relative;
+          .icon {
+            margin-right: 27px;
+            font-size: 18px;
+            top: 0px;
+            position: absolute;
+            left: 44px;
+            top: 9px;
+          }
+          span {
+            margin-left: 15px;
+          }
+        }
+      }
+      .Checkbox_component {
+        .Checkbox_component-content {
+          max-width: 85%;
+          font-size: 14px;
+        }
+        .Checkbox_component-icon{
+          display: flex;
+          i{
+            display: flex;
+            height: max-content;
+            width: max-content;
+            position: inherit;
+            margin: auto;
+
+          }
+        
+        }
+      }
+    }
+  }
+}
+
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  &.add-patient-modal {
+    .step-content {
+      color: $select-title-color;
+
+      .step-body {
+        .select-options {
+          .select-item {
+            &:hover {
+              background-color: $sundhedplus-lightest-grey;
+            }
+
+            .di {
+              color: $sundhedplus-red-main;
+            }
+          }
+        }
+
+        .input-container {
+          background-color: $sundhedplus-lightest-grey;
+
+          .clinic-search {
+            position: relative;
+            width: 100%;
+
+            i {
+              position: absolute;
+              color: $grey;
+            }
+
+            .no-suggestions,
+            .suggestions {
+              .list-group-item {
+                &:hover {
+                  background-color: $sundhedplus-lightest-grey;
+                }
+              }
+            }
+          }
+
+          #clinicSearch {
+            &.form-control {
+              border-color: $sundhedplus-light-grey;
+              color: $sundhedplus-darkest-grey;
+            }
+          }
+
+          .form-group {
+            .form-control {
+              border-color: $sundhedplus-light-grey;
+            }
+          }
+        }
+      }
+
+      .text-information {
+        .btn-app-link {
+          color: $sundhedplus-red-main;
+        }
+      }
+
+      .clinic-search {
+        .list-group-item {
+          border-top-color: $sundhedplus-lightest-grey;
+          border-bottom-color: $sundhedplus-lightest-grey;
+        }
+
+        & .clinic-search-input {
+          border-color: $sundhedplus-light-grey;
+
+          &:focus {
+            border-color: $grey;
+          }
+        }
+
+        .no-suggestions,
+        .suggestions {
+          .list-group-item {
+            &:hover {
+              background-color: $sundhedplus-lightest-grey;
+            }
+          }
+        }
+      }
+
+      &.step-sendapp-link {
+        .DropDown_Component .Top_area .placeholder {
+          color: $sundhedplus-light-grey;
+        }
+
+        .input-send-container {
+          .form-group {
+            .form-control {
+              border-color: $sundhedplus-light-grey;
+              color: $darkest-grey;
+
+              &::placeholder {
+                color: $sundhedplus-light-grey;
+              }
+
+              &:focus {
+                box-shadow: none;
+                border-color: $sundhedplus-light-grey;
+              }
+            }
+          }
+        }
+
+        .button-actions {
+          .btn {
+            border-radius: 20px 20px 20px 20px;
+          }
+        }
+      }
+    }
+  }
+
+}

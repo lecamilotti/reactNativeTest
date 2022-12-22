@@ -1,0 +1,125 @@
+.something-went-wrong{
+  font-family: "Maven Pro Regular";
+  .title{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    font-family: "Maven Pro Bold";
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .error-image-container {
+    margin-bottom: 0;
+  }
+
+  .visit-action-buttons{
+    text-align: center;
+
+    a {
+      color: $white !important;
+      display: inline-block;
+      font-size: 13.5px;
+      width: 70%;
+      margin-top: 1rem;
+    }
+  }
+  .timestamp {
+    font-size: 12px;
+    line-height: 24px;
+    color: $grey;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .more-technical-info {
+    margin: 1rem 0;
+    line-height: 18px;
+    font-size: 13.5px;
+    color: $status-red;
+    border: 1px solid $status-red;
+    i {
+      margin-left: 5px;
+    }
+
+    &:not(:disabled):not(.disabled):active, &:hover {
+      background: transparent;
+      border: 1px solid $status-red;;
+      color: $status-red;
+    }
+  }
+
+  .accordion-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+    margin-top: 30px;
+    text-align: left;
+    background-color: $lighter-grey;
+    cursor: pointer;
+    font-size: 14px;
+    color: $dark-grey;
+    justify-content: center;
+    i {
+      margin-left: 10px;
+    }
+  }
+  .panel {
+    display: none;
+    font-size: 14px;
+    padding: 16px;
+    text-align: left;
+    background: $lighter-grey;
+    &.active {
+      display: block;
+    }
+  }
+  .collapsible-section {
+    text-align: left;
+    .card {
+      background: $lighter-grey;
+    }
+    .card-body {
+      padding: 1rem !important;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0 18px;
+    & .title {
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    & .image-broken-robot {
+      height: 145px;
+    }
+    & .timestamp {
+      margin-top: 20px;
+    }
+  }
+}
+
+.add-patient-modal .add-patient-container.error .card-body {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+  .something-went-wrong {
+    .accordion-header {
+      background: $sundhedplus-lighter-grey;
+    }
+    .panel {
+      background: $sundhedplus-lighter-grey;
+    }
+    .collapsible-section {
+      .card {
+        background: $sundhedplus-lighter-grey;
+      }
+    }
+  }
+}

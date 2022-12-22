@@ -1,0 +1,1355 @@
+.accept-loan {
+  background-color: $lightest-grey;
+  line-height: 1.25;
+  overflow: auto;
+
+  @include media-breakpoint-down(sm) {
+    background-color: $white;
+  }
+
+  @include higher-devices {
+    height: auto;
+    min-height: auto;
+  }
+
+  .loading-message {
+    //position: relative;
+    background-color: transparent;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: fit-content;
+    align-items: center;
+    @media (min-width: 768px){
+         overflow: auto;
+         min-height: 100vh;
+    }
+
+    @include media-breakpoint-down(sm) {
+      overflow: auto;
+      height: auto;
+      min-height: 100%;
+      align-items: flex-start;
+    }
+
+    @include higher-devices {
+      height: calc(100% - 60px);
+    }
+  }
+
+  &.loading {
+    height: 100%;
+
+    #root {
+      align-items: center;
+    }
+  }
+
+  .step-4 {
+    .accept-loan-container {
+      @include media-breakpoint-down(md) {
+        height: calc(100vh - 60px);
+        overflow: hidden;
+      }
+      @include media-breakpoint-down(sm) {
+        height: 100%;
+      }
+    }
+  }
+
+  .step-6, .step-7 {
+    .accept-loan-container {
+      @include media-breakpoint-down(md) {
+        height: auto;
+      }
+    }
+  }
+
+  &-container {
+    background-color: $white;
+    position: relative;
+    min-height: calc(100vh - 60px);
+
+    @include media-breakpoint-down(sm) {
+      border: 0;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 100vw;
+    }
+
+    @include media-breakpoint-up(md) {
+      width: 480px;
+      box-shadow: 0 0 27px 4px rgba(102, 102, 102, 0.17);
+      min-height: 760px;
+    }
+
+    .fade {
+      transition: opacity .3s ease-in;
+    }
+
+    .display-iphone5 {
+      display: none;
+
+      @include media-breakpoint-down(xs) {
+        display: block;
+      }
+    }
+
+    .card-header,
+    .card-footer {
+      background-color: transparent;
+      border: 0;
+    }
+
+    .card-header,
+    .card-body,
+    .card-footer {
+      @include media-breakpoint-up(md) {
+        padding: 38px;
+      }
+    }
+
+    .card-header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      padding: {
+        top: 23px;
+        bottom: 10px;
+      }
+
+      @include media-breakpoint-up(md) {
+        padding: {
+          top: 0;
+          bottom: 0;
+        }
+        height: 37px;
+      }
+
+      .d-logo {
+        background-color: $logo-green;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        width: 56px;
+        height: 56px;
+        font-size: 26px;
+
+        @include media-breakpoint-up(md) {
+          font-size: 33px;
+          width: 70px;
+          height: 70px;
+          position: absolute;
+          top: 0;
+          left: 205px;
+          transform: translateY(-50%);
+        }
+
+        .di-denti {
+          position: relative;
+          right: 1px;
+          bottom: 1px;
+        }
+
+        &.logo-red {
+          background-color: $white;
+          border: 5px solid $logo-red;
+          color: $logo-red;
+        }
+      }
+    }
+
+    .card-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 20px;
+      z-index: 20;
+
+      .steps {
+        display: flex;
+        flex-direction: row;
+
+        .bullet-step {
+          width: 11px;
+          height: 11px;
+          background-color: $lightest-grey;
+          margin-right: 8px;
+          border-radius: 5px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &.active {
+            background-color: $light-grey;
+          }
+        }
+
+        p {
+          margin-bottom: 0;
+          color: $grey;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0;
+
+      .step-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: auto;
+
+        @include media-breakpoint-down(xs) {
+         margin-top: 25px;
+        }
+
+        .btn {
+          width: 142px;
+          font-size: 14px;
+
+          &.reject {
+            background-color: $white;
+            border: 2px solid $green-main;
+            margin-right: 24px;
+            color: $green-main;
+
+            @include hover-focus-active {
+              background-color: $lightest-grey;
+              border-color: darken($green-main, 5);
+            }
+          }
+        }
+      }
+
+      .loading-message {
+        flex-direction: column;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        .loadingMessage {
+          font-size: 16px;
+          color: $darker-grey;
+        }
+      }
+    }
+
+    .step-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .step-title {
+        font-family: "Maven Pro Bold";
+        color: $darker-grey;
+        text-align: center;
+        font-size: 25px;
+        line-height: 1.2;
+        margin-bottom: 25px;
+
+        @include higher-devices {
+          margin-bottom: 45px;
+        }
+
+        @include media-breakpoint-up(md) {
+          font-size: 32px;
+          margin-bottom: 45px;
+        }
+      }
+
+      .clinic-information {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .clinic-details {
+          flex: 1;
+
+          .clinic-label {
+            color: $grey;
+            text-transform: uppercase;
+            font-size: 12px;
+
+            @include media-breakpoint-up(md) {
+              font-size: 14px;
+            }
+          }
+
+          .clinic-data {
+            color: $darker-grey;
+            font-size: 16px;
+
+            @include media-breakpoint-up(md) {
+              font-size: 18px;
+            }
+          }
+        }
+
+        .clinic-badge {
+          width: 86px;
+          height: 86px;
+
+          @include media-breakpoint-up(md) {
+            width: 94px;
+            height: 94px;
+          }
+        }
+      }
+
+      .invoice-amount {
+        background-color: $lightest-grey;
+        padding: 15px;
+        text-align: center;
+        margin-top: 30px;
+
+        @include media-breakpoint-down(xs) {
+          margin-top: 20px;
+        }
+
+        @include media-breakpoint-up(md) {
+          margin-top: 60px;
+        }
+
+        .invoice-amount-label {
+          font-size: 19px;
+
+          @include media-breakpoint-up(md) {
+            font-size: 24px;
+          }
+          color: $darker-grey;
+        }
+
+        .invoice-amount-value {
+          font-size: 30px;
+          color: $darker-grey;
+          font-family: "Maven Pro Bold";
+          margin-top: 10px;
+
+          @include media-breakpoint-down(xs) {
+            font-size: 24px;
+          }
+        }
+      }
+
+      .available-credit {
+        margin-top: 15px;
+        font-size: 12px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: $darker-grey;
+        text-transform: uppercase;
+
+        @include media-breakpoint-up(md) {
+          font-size: 14px;
+        }
+      }
+
+      .question {
+        text-align: center;
+        color: $black;
+        font-size: 18px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+
+        @include media-breakpoint-down(xs) {
+          margin-top: 25px;
+          margin-bottom: 0;
+        }
+
+        @include media-breakpoint-up(md) {
+          margin-bottom: 0;
+          margin-top: 90px;
+          font-size: 24px;
+        }
+      }
+
+      .loan-details,
+      .loan-totals {
+        line-height: 1.5;
+
+        & > div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-end;
+          font-size: 16px;
+          color: $darker-grey;
+
+          @include media-breakpoint-down(xs) {
+            font-size: 14px;
+          }
+
+          .di-help {
+            cursor: pointer;
+            color: $grey;
+            margin-left: 6px;
+          }
+        }
+      }
+
+      .loan-duration {
+        margin-top: 27px;
+
+        @include media-breakpoint-down(xs) {
+          margin-top: 20px;
+        }
+
+        & > div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          font-size: 16px;
+
+          @include media-breakpoint-down(xs) {
+            font-size: 14px;
+          }
+
+          .di-help {
+            color: $grey;
+            margin-left: 6px;
+            cursor: pointer;
+          }
+        }
+
+        .duration-slider {
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+
+          .rc-slider {
+            .rc-slider-step {
+              display: none;
+            }
+
+            .rc-slider-handle {
+              position: relative;
+              animation: glowing 4000ms infinite;
+
+              &::before,
+              &::after {
+                content: '';
+                position: absolute;
+                width: 1px;
+                height: 12px;
+                top: 5px;
+                background-color: $white;
+              }
+
+              &::before {
+                left: 8px;
+                right: auto;
+                content: '';
+                position: absolute;
+                width: 1px;
+                height: 12px;
+                top: 5px;
+                background-color: $white;
+              }
+
+              &:after {
+                left: auto;
+                right: 8px;
+              }
+            }
+
+            .rc-slider-mark {
+              position: relative;
+              top: -2px;
+              margin-left: 7px;
+              margin-right: 7px;
+              width: auto;
+
+              .rc-slider-mark-text {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+
+      .loan-totals {
+        margin-top: 18px;
+        margin-bottom: 20px;
+
+        @include media-breakpoint-up(md) {
+          margin-bottom: 0;
+          margin-top: 45px;
+        }
+
+        & > div {
+          font-size: 14px;
+          color: $darker-grey;
+
+          & > div:first-child {
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &.step-two {
+        .invoice-amount {
+          margin-top: 26px;
+
+          @include media-breakpoint-down(xs) {
+            margin-top: 20px;
+          }
+        }
+      }
+
+      &.step-two-rest {
+        .min-duration {
+          margin-top: 15px;
+
+          @include media-breakpoint-up(md) {
+            margin-top: 25px;
+          }
+        }
+
+        .invoice-amount {
+          @include media-breakpoint-up(md) {
+            margin-top: 45px;
+          }
+        }
+      }
+
+      &.step-three {
+        // height: 100%;
+        min-height: 1px;
+        flex: 1;
+      }
+
+      &.step-four {
+        .visit-action-buttons {
+          @include media-breakpoint-down(xs) {
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      &.step-seven {
+        .payment-info {
+          & > div:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &.step-eight {
+        .visit-action-buttons {
+          .btn {
+            height: 40px;
+            font-size: 14px;
+
+            @include media-breakpoint-down(xs) {
+              height: auto;
+            }
+          }
+        }
+      }
+
+      .agreement-information {
+        background-color: $lightest-grey;
+        height: 400px;
+        line-height: 1.35;
+        margin-bottom: 20px;
+
+        @include media-breakpoint-down(xs) {
+          height: 300px;
+        }
+
+        .scrollbar-wrapper {
+          padding: 16px 24px;
+
+          @include media-breakpoint-down(xs) {
+            padding: 16px;
+          }
+        }
+
+        .title-agreement {
+          text-align: center;
+          font-size: 14px;
+          color: $darker-grey;
+
+          p {
+            margin-bottom: 0;
+
+            &:first-child {
+              text-transform: uppercase;
+            }
+          }
+        }
+        .number-agreement {
+          font-size: 14px;
+          color: $darker-grey;
+          text-align: center;
+          margin: 1rem 0 2rem 0;
+        }
+
+        .agreement-details {
+          & > div {
+            line-height: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 14px;
+            color: $darker-grey;
+          }
+        }
+        .terms-conditions {
+          margin-top: 1.5rem;
+        }
+      }
+
+
+      .visit-details {
+        font-size: 16px;
+        color: $darker-grey;
+        margin: {
+          bottom: 60px;
+        }
+
+        @include media-breakpoint-down(xs) {
+          margin: {
+            bottom: 35px;
+          }
+        }
+        @include higher-devices {
+          line-height: 1.5;
+        }
+
+        @include media-breakpoint-up(md) {
+          line-height: 1.5;
+        }
+      }
+
+      .creditcard-action-buttons,
+      .visit-action-buttons {
+        text-align: center;
+
+        .btn {
+          height: 60px;
+          width: 100%;
+          margin: 0 auto;
+          margin-bottom: 24px;
+          font-size: 14px;
+          line-height: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include media-breakpoint-down(xs) {
+            height: auto;
+          }
+
+          @include media-breakpoint-up(md) {
+            width: 305px;
+          }
+
+          &:last-child {
+            @include media-breakpoint-down(sm) {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      .creditcard-information {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $darker-grey;
+        // width: 80%;
+        margin: 0 auto 40px auto;
+        text-align: center;
+
+        @include media-breakpoint-down(xs) {
+          margin: 0 auto 0 auto;
+        }
+        @include media-breakpoint-up(md) {
+          width: 80%;
+        }
+      }
+
+      .creditcard-details {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        font-size: 16px;
+        color: $darker-grey;
+
+        @include media-breakpoint-down(xs) {
+          margin: 25px auto;
+        }
+
+        p {
+          margin-bottom: 10px;
+          font-size: 14px;
+        }
+
+        .credit-card-bg {
+          position: relative;
+          width: 281px;
+          margin: 0 auto;
+          height: 205px;
+          overflow: hidden;
+        }
+
+        .credit-card {
+          position: absolute;
+          top: 90px;
+          color: $dark-grey;
+          width: 100%;
+
+          &-number {
+            font-size: 21px;
+            margin-left: 24px;
+            margin-bottom: 12px;
+            text-align: left;
+          }
+
+          &-expires {
+            margin-bottom: 8px;
+            font-size: 14px;
+
+            & .text {
+              font-size: 10px;
+              margin-right: 8px;
+            }
+          }
+
+          &-name {
+            font-size: 15px;
+            text-align: left;
+            margin-left: 24px;
+          }
+
+          &-logo {
+            width: auto;
+            height: 21px;
+            position: absolute;
+            right: 18px;
+            top: -70px;
+          }
+        }
+      }
+
+      .register-card {
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.5;
+        color: $darker-grey;
+        margin: {
+          bottom: 24px;
+        }
+
+        @include media-breakpoint-down(xs) {
+          margin: {
+            bottom: 24px;
+          }
+        }
+      }
+
+      .register-card-later {
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 24px;
+
+        button {
+          @include plain-all {
+            line-height: 16px;
+            padding: 2px;
+            color: $dark-grey;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .reepay-form-container {
+        #rp_container {
+          height: 500px;
+        }
+      }
+
+      .payment-info {
+        font-size: 16px;
+        color: $darker-grey;
+        line-height: 1.5;
+
+        & > div {
+          margin-bottom: 24px;
+
+          &:last-child {
+            margin-bottom: 60px;
+          }
+        }
+      }
+
+      .payment-send-email {
+        margin: {
+          top: 24px;
+        }
+        font-size: 16px;
+        line-height: 1.5;
+        color: $darker-grey;
+      }
+
+      .payment-observation {
+        font-size: 16px;
+        line-height: 1.5;
+        color: $darker-grey;
+        padding: 32px 22px;
+        background-color: $lightest-grey;
+        margin-top: 24px;
+
+        @include media-breakpoint-down(xs) {
+          padding: 24px 14px;
+        }
+      }
+
+      .check {
+        margin-top: 50px;
+        text-align: center;
+
+        .di-circle-check {
+          font-size: 172px;
+          color: $green-main;
+        }
+      }
+
+      .error-info {
+        & div {
+          font-size: 16px;
+          color: $darker-grey;
+          margin-bottom: 24px;
+          line-height: 1.5;
+        }
+      }
+
+
+    }
+    .visit-guy-container {
+      position: absolute;
+      height: 120px;
+      overflow: hidden;
+      bottom: 0;
+      width: 100%;
+
+      @include media-breakpoint-down(xs) {
+        height: 120px;
+        display: none;
+      }
+
+      @include media-breakpoint-up(md) {
+        height: 200px;
+      }
+
+      @include higher-devices {
+        height: 160px;
+      }
+
+      .image-visit-guy {
+        position: absolute;
+        right: 0px;
+        z-index: 0;
+        width: 90px;
+        bottom: -20px;
+
+        @include media-breakpoint-down(xs) {
+          width: 70px;
+          bottom: -10px;
+        }
+
+        @include media-breakpoint-up(md) {
+          bottom: -30px;
+          width: 158px;
+        }
+
+        @include higher-devices {
+          width: 120px;
+        }
+      }
+    }
+  }
+}
+
+
+.error-image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.image-broken-robot {
+  height: 196px;
+  width: auto;
+}
+
+.restructured-flow {
+  .steps {
+    .bullet-step {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.slide-group {
+  display: flex;
+  position: relative;
+  &.move-next {
+    & > .slide-enter {
+      position: absolute;
+      transform: translate(100%);
+      opacity: 0;
+
+      &-active {
+        transform: translate(0%);
+        transition: all $animation-duration ease;
+        opacity: 1;
+      }
+    }
+
+    & > .slide-exit {
+      transform: translate(0%);
+      opacity: 1;
+
+      &-active {
+        transform: translate(-100%);
+        transition: all $animation-duration ease;
+        opacity: 0;
+      }
+    }
+  }
+
+  &.move-prev {
+    & > .slide-enter {
+      position: absolute;
+      transform: translate(-100%);
+      opacity: 0;
+
+      &-active {
+        transform: translate(0%);
+        transition: all $animation-duration ease;
+        opacity: 1;
+      }
+    }
+    & > .slide-exit {
+      transform: translate(0%);
+      opacity: 1;
+
+      &-active {
+        transform: translate(100%);
+        transition: all $animation-duration ease;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+
+.popover-container {
+  @include media-breakpoint-down(sm) {
+    z-index: 1;
+    box-shadow: 0 0 29px 0 rgba(102, 102, 102, 0.42);
+    right: 10px;
+  }
+}
+
+.popover {
+  position: relative;
+  z-index: 9999;
+  margin: 0;
+  opacity: 1;
+  border-radius: 4px;
+  backface-visibility: hidden;
+  border: 0;
+  min-width: 100%;
+
+  @include media-breakpoint-up(md) {
+    min-width: 340px;
+  }
+}
+
+.popover-content {
+  background-color: $white;
+  border-radius: 4px;
+  padding: 2rem;
+  text-align: left;
+
+  .popover-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: $darker-grey;
+    margin-bottom: 20px;
+  }
+
+  .popover-text {
+    font-size: 14px;
+    color: $darker-grey;
+
+    & > p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .popover-close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .btn {
+      width: 142px;
+    }
+  }
+}
+
+.popover-arrow {
+  position: absolute;
+  transform: translateX(-50%) rotate(45deg);
+  height: 14px;
+  width: 14px;
+  background: $white;
+  z-index: -1;
+}
+
+[x-placement=left] .popover,
+[x-placement=left-start] .popover,
+[x-placement=left-end] .popover {
+  margin-right: 0;
+
+  @include media-breakpoint-up(md) {
+    margin-right: 14px;
+  }
+}
+
+[x-placement=left] .popover-arrow,
+[x-placement=left-start] .popover-arrow,
+[x-placement=left-end] .popover-arrow {
+  right: -14px; margin: 7px 0;
+}
+
+[x-placement=right] .popover,
+[x-placement=right-start] .popover,
+[x-placement=right-end] .popover {
+  margin-left: 54px;
+}
+
+[x-placement=right] .popover-arrow,
+[x-placement=right-start] .popover-arrow,
+[x-placement=right-end] .popover-arrow {
+  left: 0;
+}
+
+[data-transition-name=popover][data-transition-state=entering] .popover {
+  opacity: 0;
+  transform: scale(.5);
+  transform-origin: center;
+}
+[data-transition-name=popover][data-transition-state=enter] .popover {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  transition: .3s cubic-bezier(.54, 1.12, .38, 1.11);
+  transition-property: opacity, transform;
+}
+[data-transition-name=popover][data-transition-state=exiting] .popover {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+}
+[data-transition-name=popover][data-transition-state=exit] .popover {
+  opacity: 0;
+  transform: scale(.5);
+  transform-origin: center;
+  transition: .1s cubic-bezier(.4, 1, .75, .9);
+  transition-property: opacity, transform;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 4px $denti-animation-color;
+  }
+  50% {
+    box-shadow: 0 0 9px $denti-animation-color;
+  }
+  100% {
+    box-shadow: 0 0 4px $denti-animation-color;
+  }
+}
+
+
+// ####### SUNDHEDPLUS #########
+#Sundhedplus {
+
+  .sundhed-wrapper {
+    font-family: 'Overpass', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+  
+    @include media-breakpoint-up(md) {
+      min-height: auto;
+    }
+  
+    .sundhed-plus-logo {
+      margin: {
+        top: 20px;
+        bottom: 0px;
+      }
+      width: 37.5%;
+  
+      @include media-breakpoint-up(md) {
+        margin: {
+          top: 0;
+          bottom: 20px;
+        }
+      }
+  
+      .sundhed-logo {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .card{
+      border: none;
+    }
+  }
+  
+  .accept-loan {
+    background-color: $sundhedplus-lightest-grey;
+    line-height: 1.25;
+    font-family: 'Overpass', sans-serif;
+  
+    @include media-breakpoint-down(sm) {
+      background-color: $white;
+    }
+  
+    @include higher-devices {
+      height: auto;
+      min-height: auto;
+    }
+  
+    .loading-message {
+      position: relative;
+      background-color: transparent;
+    }
+  
+    #root {
+      background-color: $sundhedplus-light-red-main;
+    }
+    .step-4 {
+      .accept-loan-container {
+        &.card{
+          border: initial;
+        }
+      }
+    }
+  
+    &-container {
+      min-height: auto;
+      flex: 1;
+  
+      @include media-breakpoint-up(md) {
+        min-height: 720px;
+      }
+  
+      .fade {
+        transition: opacity 0.3s ease-in;
+      }
+
+      .card-header {
+        .d-logo {
+          background-color: $sundhedplus-logo-green;
+          &.logo-red {
+            background-color: $white;
+            border: 5px solid $logo-red;
+            color: $logo-red;
+            display: none;
+          }
+        }
+      }
+    
+      .card-footer {
+        padding: 40px;
+        .steps {
+          display: flex;
+          flex-direction: row;
+  
+          .bullet-step {
+            background-color: $sundhedplus-lightest-grey;
+  
+            &.active {
+              background-color: $sundhedplus-light-grey;
+            }
+          }
+        }
+      }
+  
+      .card-body {
+        .step-actions {
+          .btn {
+            text-transform: uppercase;
+            font-weight: 600;
+            &.reject {
+              border: 2px solid $sundhedplus-red-main;
+              color: $sundhedplus-red-main;
+              background-color: transparent;
+  
+              @include hover-focus-active {
+                background-color: $sundhedplus-lightest-grey;
+                border-color: darken($sundhedplus-red-main, 5);
+              }
+            }
+          }
+        }
+      }
+  
+      .step-content {
+        .step-title {
+          font-family: 'PlayfairDisplay', serif;
+        }
+  
+        .invoice-amount {
+          background-color: $sundhedplus-lightest-grey;
+        }
+  
+        .loan-totals {
+          @include media-breakpoint-up(md) {
+            margin-bottom: 0;
+            margin-top: 20px;
+          }
+        }
+  
+        .agreement-information {
+          background-color: $sundhedplus-lightest-grey;
+        }
+
+        .creditcard-action-buttons,
+        .visit-action-buttons {
+          text-align: center;
+  
+          .btn {
+            &:last-child {
+              @include media-breakpoint-down(sm) {
+                margin-bottom: initial;
+              }
+            }
+          }
+        }
+
+
+  
+        .payment-observation {
+          background-color: $sundhedplus-lightest-grey;
+        }
+  
+        .check {
+          .di-circle-check {
+            color: $sundhedplus-red-main;
+          }
+        }
+      }
+    }
+  }
+
+  .popover-container {
+    @include media-breakpoint-down(sm) {
+      z-index: 1;
+      box-shadow: 0 0 29px 0 rgba(102, 102, 102, 0.42);
+      right: 10px;
+    }
+  }
+  .popover {
+    position: relative;
+    z-index: 9999;
+    margin: 0;
+    opacity: 1;
+    border-radius: 4px;
+    backface-visibility: hidden;
+    border: 0;
+    min-width: 100%;
+  
+    @include media-breakpoint-up(md) {
+      min-width: 340px;
+    }
+  }
+  .popover-content {
+    background-color: $white;
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: left;
+  
+    .popover-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: $darker-grey;
+      margin-bottom: 20px;
+    }
+  
+    .popover-text {
+      font-size: 14px;
+      color: $darker-grey;
+  
+      & > p {
+        margin-bottom: 1rem;
+      }
+    }
+  
+    .popover-close {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .btn {
+        width: 142px;
+      }
+    }
+  }
+
+  @keyframes glowing {
+    0% {
+      box-shadow: 0 0 4px $sundhedplus-animation-color;
+    }
+    50% {
+      box-shadow: 0 0 9px $sundhedplus-animation-color;
+    }
+    100% {
+      box-shadow: 0 0 4px $sundhedplus-animation-color;
+    }
+  }
+ 
+}

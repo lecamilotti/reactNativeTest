@@ -1,0 +1,40 @@
+.popupiconspacing {
+  margin-bottom: 12px;
+}
+.text-color-green {
+  color: $card-green;
+}
+
+.btn i {
+  margin-right: 10px;
+}
+.btn {
+  min-width: 115px;
+}
+
+.btn-center {
+  margin: 30px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: fit-content;
+  font-size: 14px;
+}
+// .btn{
+//     border-radius: 20px;
+//     padding: 0 1.50rem;
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 40px;
+//     min-width: 150px;
+//     height: 40px;
+// }
+// .modal-body .btn{
+//  min-width: 170px;
+// }
+// .btn-small {
+//     font-size: 13px;
+//     height: 30px !important;
+//     padding: unset;
+//     line-height: unset;
+// }
